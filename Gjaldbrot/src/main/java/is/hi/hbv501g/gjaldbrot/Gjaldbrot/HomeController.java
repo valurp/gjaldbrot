@@ -10,4 +10,7 @@ public class HomeController {
     public String Home(){
         return "Velkominn";
     }
+
+    @RequestMapping("login")
+    public String LoginPage(){return "LoginPage";}
 }
