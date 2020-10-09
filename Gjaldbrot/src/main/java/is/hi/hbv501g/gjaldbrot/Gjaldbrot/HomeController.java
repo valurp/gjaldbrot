@@ -12,5 +12,12 @@ public class HomeController {
     }
 
     @RequestMapping("login")
-    public String LoginPage(){return "LoginPage";}
+    public String LoginPage(){
+        return "LoginPage";
+    }
+
+    @RequestMapping("styles.css")
+    public String CSS() {
+        return "styles.css";
+    }
 }
