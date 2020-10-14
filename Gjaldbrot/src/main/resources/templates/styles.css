@@ -8,6 +8,8 @@
 }
 body{
     background-color: #C5E3BF;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 h1{
@@ -57,6 +59,16 @@ h1{
 
 .rmain__container__registerForm > input {
     height: 4em;
+    margin: 0 1em;
+    padding: 0 1em;
+}
+
+.rmain__container__registerForm > input:hover {
+    background-color: azure;
+}
+
+.rmain__container__registerForm > input:focus {
+    background-color: azure;
 }
 
 .rmain__container__registerForm > p {
