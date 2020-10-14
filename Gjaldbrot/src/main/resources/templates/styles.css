@@ -74,6 +74,21 @@ h1{
 .rmain__container__registerForm > p {
     text-align: center;
 }
+/*****Main_Page*****/
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main__container__select-value > button {
+    width: 100%;
+}
+
+.main__container__selec-slide > select {
+    width: 100%;
+}
+
 /*****Grid setup*****/
 .grid{
     display: flex;
