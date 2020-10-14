@@ -46,7 +46,22 @@ h1{
 .signup{
     margin:auto;
 }
+/***Register_Page***/
 
+.rmain__container__registerForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.rmain__container__registerForm > input {
+    height: 4em;
+}
+
+.rmain__container__registerForm > p {
+    text-align: center;
+}
 /*****Grid setup*****/
 .grid{
     display: flex;
