@@ -8,12 +8,17 @@ public class HomeController {
 
     @RequestMapping("/")
     public String Home(){
-        return "Velkominn";
+        return "LoginPage";
     }
 
-    @RequestMapping("login")
+    @RequestMapping("/login")
     public String LoginPage(){
         return "LoginPage";
+    }
+
+    @RequestMapping("/register")
+    public String RegisterPage(){
+        return "RegisterPage";
     }
 
     @RequestMapping("styles.css")
