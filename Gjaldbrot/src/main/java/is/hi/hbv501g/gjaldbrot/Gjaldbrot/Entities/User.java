@@ -1,4 +1,4 @@
-package is.hi.hbv501.gjaldbrot.Gjaldbrot.Entities;
+package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;

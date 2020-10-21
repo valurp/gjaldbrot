@@ -1,6 +1,6 @@
-package is.hi.hbv501.gjaldbrot.Gjaldbrot;
+package is.hi.hbv501g.gjaldbrot.Gjaldbrot;
 
-import is.hi.hbv501.gjaldbrot.Gjaldbrot.Entities.User;
+import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
 
 import java.util.List;
 
