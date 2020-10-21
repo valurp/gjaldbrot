@@ -1,4 +1,4 @@
-package is.hi.hbv501g.gjaldbrot.Gjaldbrot;
+package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services;
 
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
 
