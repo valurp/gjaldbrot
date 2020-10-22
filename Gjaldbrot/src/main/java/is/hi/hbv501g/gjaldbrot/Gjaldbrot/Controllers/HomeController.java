@@ -1,4 +1,4 @@
-package is.hi.hbv501g.gjaldbrot.Gjaldbrot;
+package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +19,11 @@ public class HomeController {
     @RequestMapping("/register")
     public String RegisterPage(){
         return "RegisterPage";
+    }
+
+    @RequestMapping("/receipt")
+    public String ReceiptPage(){
+        return "ReceiptPage";
     }
 
     @RequestMapping("styles.css")
