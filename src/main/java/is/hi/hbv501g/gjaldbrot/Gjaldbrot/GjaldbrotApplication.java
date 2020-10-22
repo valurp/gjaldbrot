@@ -1,6 +1,7 @@
 package is.hi.hbv501g.gjaldbrot.Gjaldbrot;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
