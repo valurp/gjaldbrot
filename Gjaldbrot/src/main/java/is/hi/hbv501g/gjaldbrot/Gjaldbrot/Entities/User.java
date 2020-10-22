@@ -1,9 +1,9 @@
 package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.Pattern;
-import java.util.ArrayList;
-import java.util.List;
+//import javax.validation.constraints.Pattern;
+//import java.util.ArrayList;
+//import java.util.List;
 
 @Entity
 @Table(name = "User")
@@ -69,15 +69,15 @@ public class User {
      * 
      */
     public void setPassword(String password) {
-        this.password = userPass;
+        password = userPass;
     }
     /**
      * User 
      * 
      */
     public User(String email, String password) {
-        this.email = userEmail;
-        this.password = userPass;
+        email = userEmail;
+        password = userPass;
     }
 
     // public createCurReceipt(int amount, Type t, Date d, Time tm) {
