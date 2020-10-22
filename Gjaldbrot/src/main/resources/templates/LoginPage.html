@@ -11,7 +11,7 @@
 </header>
 <main class="grid">
     <div class="row">
-        <form class="login col_6">
+        <form class="login col_6" action="#" th:action="@{/login}" th:object="${user}">
             <fieldset class="login_fieldset">
                 <legend>Innskráning</legend>
                 <label class="login_field row">
@@ -27,7 +27,7 @@
         </form>
     </div>
     <section class="row">
-        <p class="signup col_6">Ertu ekki með aðgang? Skráðu þig í Gjaldbrot <a href="RegisterPage.html">Hér</a></p>
+        <p class="signup col_6">Ertu ekki með aðgang? Skráðu þig í Gjaldbrot <a href="register">Hér</a></p>
     </section>
 </main>
 </body>

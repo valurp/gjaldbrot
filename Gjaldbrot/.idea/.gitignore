@@ -1,7 +1,3 @@
-#ignore auto generated files
-/target/
-*.class
-
 # Default ignored files
 /shelf/
 /workspace.xml
@@ -15,5 +11,4 @@
 /jarRepositories.xml
 /misc.xml
 /modules.xml
-/workspace.xml
 /vcs.xml
