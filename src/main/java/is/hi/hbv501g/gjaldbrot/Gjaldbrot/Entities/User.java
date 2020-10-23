@@ -23,6 +23,7 @@ public class User {
      * 
      * 
      */
+    @javax.persistence.Id
     public long getId() {
         return id;
     }
