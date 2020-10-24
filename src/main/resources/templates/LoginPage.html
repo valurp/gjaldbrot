@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <title>Login</title>
+</head>
+<body>
+<header>
+    <h1>Gjaldbrot</h1>
+</header>
+<main class="grid">
+    <div class="row">
+        <form class="login col_6" action="#" th:action="@{/login}" th:object="${user}">
+            <fieldset class="login_fieldset">
+                <legend>Innskráning</legend>
+                <label class="login_field row">
+                    <p class="login_id">Notendanafn</p>
+                    <input class="login_input" id="username" type="text" required>
+                </label>
+                <label class="login_field row">
+                    <p class="login_id">Lykilorð</p>
+                    <input class="login_input" id="password" type="password" required>
+                </label>
+            </fieldset>
+            <button id="Login" class="login_button">Innskrá</button>
+        </form>
+    </div>
+    <section class="row">
+        <p class="signup col_6">Ertu ekki með aðgang? Skráðu þig í Gjaldbrot <a href="register">Hér</a></p>
+    </section>
+</main>
+</body>
+</html>
