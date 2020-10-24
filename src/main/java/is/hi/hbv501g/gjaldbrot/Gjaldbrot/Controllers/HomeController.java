@@ -31,7 +31,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String Home(Model model){
-        return "Velkominn";
+        return "login";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -48,7 +48,7 @@ public class HomeController {
         if(exists == null){
             userService.save(user);
         }
-        return "MainPage";
+        return "login";
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
