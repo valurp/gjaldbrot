@@ -1,99 +1,57 @@
 package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities;
 
+
 import javax.persistence.*;
-//import javax.validation.constraints.Pattern;
-//import java.util.ArrayList;
-//import java.util.List;
+import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "User")
+@Table(name = "USER")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    public String userFName;
-    public String userLName;
-    public String userEmail;
-    public String userPass;
+
+    public String uName;
+
+    public String password;
 
     public User() {
     }
 
-    /**
-     * 
-     * 
-     */
-    @javax.persistence.Id
+
     public long getId() {
         return id;
     }
 
-    /**
-     * 
-     * 
-     */
     public void setId(long id) {
         this.id = id;
     }
 
     @Override
     public String toString() {
-        return userFName + " " + userLName;
-    }
-    
-    /**
-     * 
-     * 
-     */
-    public String getFirstName() {
-        return userFName;
+        return uName;
     }
 
-    /**
-     * 
-     * 
-     */
-    public String getLastName() {
-        return userLName;
+    public String getuName() {
+        return uName;
     }
 
-    /**
-     * 
-     * 
-     */
+    public void setuName(String uName) {
+        this.uName = uName;
+    }
+
     public String getPassword() {
-        return userPass;
+        return password;
     }
 
-    /**
-     * 
-     * 
-     */
     public void setPassword(String password) {
-        password = userPass;
-    }
-    /**
-     * User 
-     * 
-     */
-    public User(String email, String password) {
-        email = userEmail;
-        password = userPass;
+        this.password = password;
     }
 
-    // public createCurReceipt(int amount, Type t, Date d, Time tm) {
-
-    // }
-    
-    // public createReceipt(curReceipt) {
-
-    // }
-
-    // public deleteReceipt(CurrentReceipt) {
-
-    // }
-
-    // public changeCurReceipt(CurrentReceipt) {
-
-    // }
+    public User(String uName, String password) {
+        this.uName = uName;
+        this.password = password;
+    }
 }
