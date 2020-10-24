@@ -12,7 +12,7 @@
 </header>
 <main class="grid">
     <div class="row">
-        <form class="login col_6" action="#" th:action="@{/login}" th:object="${user}">
+        <form class="login col_6" action="#" th:action="@{/login}" th:object="${user}" method="post">
             <fieldset class="login_fieldset">
                 <legend>Innskráning</legend>
                 <label class="login_field row">

@@ -11,15 +11,15 @@
 <main class="rmain">
     <div class="rmain__container">
         <h1>Register</h1>
-        <form action="#" th:action="@{/register}" th:object="${user}" class="rmain__container__registerForm">
+        <form action="#" th:action="@{/signup}" th:object="${user}" class="rmain__container__registerForm" method="post">
             <p>First name:</p>
-            <input type="text" name="pFName" th:field="*{uName}">
+            <input type="text" name="pFName" id="username" th:field="*{uName}">
             <!--<p>Last name:</p>
             <input type="text" name="pLName" th:field="*{userLName}">
             <p>Email:</p>
             <input type="text" name="pEmail" th:field="*{userEmail}">-->
             <p>Password:</p>
-            <input type="text" name="pPassword" th:field="*{Password}">
+            <input type="text" name="pPassword" id="password" th:field="*{Password}">
             <!--<p>Confirm Password:</p>
             <input type="text" name="cPassword" th:field="*{userCPass}">
             <br>-->

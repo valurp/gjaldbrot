@@ -29,11 +29,10 @@ public class HomeController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
-    public String Home(Model model){
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String loginGET(User user){
         return "login";
     }
-
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signUpGET(User user){
         return "signup";
@@ -55,11 +54,6 @@ public class HomeController {
     public String usersGET(Model model){
         model.addAttribute("users", userService.findAll());
         return "users";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginGET(User user){
-        return "login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
