@@ -8,10 +8,10 @@
 		<version>2.1.8.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>is.hi.hbv501.videoleiga</groupId>
-	<artifactId>videoleiga</artifactId>
+	<groupId>is.hi.hbv501.gjaldbrot</groupId>
+	<artifactId>gjaldbrot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>videoleiga</name>
+	<name>Gjaldbrot</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -46,17 +46,12 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.xerial</groupId>
-			<artifactId>sqlite-jdbc</artifactId>
-			<version>3.16.1</version>
-    	</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 	</dependencies>
-
 
 	<build>
 		<plugins>
