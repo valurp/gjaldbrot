@@ -53,8 +53,9 @@ h1{
 .rmain__container__registerForm {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    width: 60%;
+    height: 80%;
 }
 
 .rmain__container__registerForm > input {
