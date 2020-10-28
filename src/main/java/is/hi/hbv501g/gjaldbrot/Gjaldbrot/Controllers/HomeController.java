@@ -33,9 +33,15 @@ public class HomeController {
     public String loginGET(User user){
         return "login";
     }
+
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String signUpGET(User user){
         return "signup";
+    }
+
+    @RequestMapping(value = "/mainPage", method = RequestMethod.GET)
+    public String mainPageGET(User user){
+        return "mainPage";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -64,7 +70,7 @@ public class HomeController {
         User exists = userService.login(user);
         if(exists != null){
             session.setAttribute("LoggedInUser", user);
-            return "redirect:/";
+            return "redirect:/mainPage";
         }
         return "redirect:/";
     }
