@@ -39,11 +39,6 @@ public class HomeController {
         return "signup";
     }
 
-    @RequestMapping(value = "/mainPage", method = RequestMethod.GET)
-    public String mainPageGET(User user){
-        return "mainPage";
-    }
-
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signUpPOST(@Valid User user, BindingResult result, Model model){
         if(result.hasErrors()){
@@ -75,18 +70,18 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/loggedin", method = RequestMethod.GET)
-    public String loggedinGET(HttpSession session, Model model){
+    @RequestMapping(value = "/mainPage", method = RequestMethod.GET)
+    public String mainPageGET(HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-        if(sessionUser  != null){
+        if(sessionUser != null){
             model.addAttribute("loggedinuser", sessionUser);
-            return "loggedInUser";
+            return "mainPage";
         }
         return "redirect:/";
     }
 
-    @RequestMapping("styles.css")
+    @RequestMapping("css/styles.css")
     public String CSS() {
-        return "styles.css";
+        return "css/styles.css";
     }
 }

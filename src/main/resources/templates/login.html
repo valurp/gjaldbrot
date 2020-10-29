@@ -3,7 +3,7 @@
 <html xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>Login</title>
 </head>
 <body>
@@ -21,10 +21,10 @@
                 </label>
                 <label class="login_field row">
                     <p class="login_id">Lykilorð</p>
-                    <input class="login_input" id="password" type="password" th:value="*{password}" required>
+                    <input class="login_input" id="password" type="password" th:field="*{password}" required>
                 </label>
             </fieldset>
-            <button id="Login" class="login_button">Innskrá</button>
+            <input class="login_button" type="submit" value="Login"/>
         </form>
     </div>
     <section class="row">
