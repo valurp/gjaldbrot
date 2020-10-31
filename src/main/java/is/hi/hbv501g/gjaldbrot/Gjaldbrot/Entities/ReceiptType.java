@@ -2,6 +2,11 @@ package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities;
 
 import javafx.scene.paint.Color;
 
+/**
+ * A small class containing an implementation of the enum Type, as well as a method for
+ * color coding each type
+ */
+
 public class ReceiptType {
     public enum Type{
         MATARINNKAUP,
