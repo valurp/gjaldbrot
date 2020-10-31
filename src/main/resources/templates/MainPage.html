@@ -7,7 +7,26 @@
     <title>Title</title>
 </head>
 <body>
-    <p>Velkominn</p>
-    <p th:text="${loggedinuser.uName}"></p>
+    <div class="header"></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <li>Gjaldbrot <span>Menu</span></li>
+            <li><a href="" target="_blank">Overview</a></li>
+            <li><a href="" target="_blank">Add recipt</a></li>
+            <li><a href="" target="_blank">Savings</a></li>
+            <li><a href="" target="_blank">Contact</a></li>
+            <li><a href="/logout" target="_blank">logout</a></li>
+        </ul>
+    </div>
+    <main>
+        <p>Velkominn</p>
+        <p th:text="${loggedinuser.uName}"></p>
+    </main>
 </body>
 </html>
