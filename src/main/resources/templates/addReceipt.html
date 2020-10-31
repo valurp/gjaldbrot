@@ -3,9 +3,27 @@
 <html xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>Title</title>
 </head>
 <body>
+    <div class="header"></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <li><a href="/mainPage" target="_blank">Gjaldbrot<span>Menu</span></a></li>
+            <li><a href="/overView" target="_blank">Overview</a></li>
+            <li><a href="#" target="_blank">Add receipt</a></li>
+            <li><a href="" target="_blank">Savings</a></li>
+            <li><a href="" target="_blank">Contact</a></li>
+            <li><a href="/logout" target="_blank">logout</a></li>
+        </ul>
+    </div>
     <div>
         <h1>Add Receipt</h1>
     </div>
