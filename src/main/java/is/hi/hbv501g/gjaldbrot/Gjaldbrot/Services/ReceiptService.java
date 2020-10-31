@@ -6,6 +6,4 @@ import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
 public interface ReceiptService {
     Receipt add(Receipt receipt);
     void delete(Receipt receipt);
-    Receipt change(Receipt receipt);
-
 }

@@ -9,5 +9,4 @@ import java.util.List;
 public interface ReceiptRepository extends JpaRepository<Receipt, Long> {
     Receipt save(Receipt receipt);
     void delete(Receipt receipt);
-    Receipt change(Receipt receipt);
 }
