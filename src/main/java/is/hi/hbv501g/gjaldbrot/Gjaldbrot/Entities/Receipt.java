@@ -3,6 +3,7 @@ package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities;
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.Date;
+import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptType.Type;
 
 @Entity
 @Table(name = "Receipt")
@@ -12,7 +13,7 @@ public class Receipt {
     private long id;
     public Date date;
     public LocalTime time;
-    // public Type type;
+    public Type type;
     public double amount;
 
     public long getId() {
@@ -39,7 +40,6 @@ public class Receipt {
         this.time = time;
     }
 
-    /*
     public Type getType() {
         return type;
     }
@@ -47,12 +47,18 @@ public class Receipt {
     public void setType(Type type) {
         this.type = type;
     }
-    */
     public double getAmount() {
         return amount;
     }
 
     public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public Receipt(Date date, LocalTime time, Type type, double amount) {
+        this.date = date;
+        this.time = time;
+        this.type = type;
         this.amount = amount;
     }
 }

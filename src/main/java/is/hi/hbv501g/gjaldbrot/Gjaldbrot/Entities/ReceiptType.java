@@ -16,7 +16,7 @@ public class ReceiptType {
         AFENGI,
         TOBAK
     }
-    public Color TypeColor(Type type) throws Exception {
+    public static Color TypeColor(Type type) throws Exception {
         switch (type) {
             case MATARINNKAUP:
                 return Color.DARKBLUE;
