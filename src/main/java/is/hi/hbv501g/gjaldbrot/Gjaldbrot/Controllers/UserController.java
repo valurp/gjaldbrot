@@ -19,13 +19,13 @@ import java.util.HashSet;
 import java.util.List;
 
 @Controller
-public class HomeController {
+public class UserController {
 
 
     private UserService userService;
 
     @Autowired
-    public HomeController(UserService userService){
+    public UserController(UserService userService){
         this.userService = userService;
     }
 
@@ -78,10 +78,5 @@ public class HomeController {
             return "mainPage";
         }
         return "redirect:/";
-    }
-
-    @RequestMapping("css/styles.css")
-    public String CSS() {
-        return "css/styles.css";
     }
 }
