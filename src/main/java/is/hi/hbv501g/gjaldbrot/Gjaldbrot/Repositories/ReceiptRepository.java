@@ -13,10 +13,12 @@ import java.util.List;
 public interface ReceiptRepository extends JpaRepository<Receipt, Long> {
     Receipt save(Receipt receipt);
     void delete(Receipt receipt);
+
     @Modifying
     @Query("Update Receipt set Amount = :amount, Type = :type where Id = :id") //Hér kæmi SQL update skipun fyrir breytingar á receipt
     Receipt change(@Param("amount") double amount, @Param("type") Type type, @Param("id") long id);
 
     @Query(value = "Select * From Receipt Where User_id = :user_id", nativeQuery = true)
     List<Receipt> getUsersReceipts(@Param("user_id") long userId);
+
 }

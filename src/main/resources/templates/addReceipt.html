@@ -28,17 +28,17 @@
         <h1>Add Receipt</h1>
     </div>
     <main class="rmain">
-        <div class="rmain__container">
+        <div class="rmain__container">1
             <h1>Register</h1>
             <form action="#" th:action="@{/addReceipt}" th:object="${receipt}" class="rmain__container__registerForm" method="post">
-                <p>First name:</p>
-                <input type="text" name="rDate" id="date" th:field="*{date}">
-                <p>Last name:</p>
-                <input type="text" name="rTime" id="time" th:field="*{time}">
-                <p>Email:</p>
+                <p>Date:</p>
+                <input type="date" name="rDate" id="date" th:field="*{date}">
+                <p>Time:</p>
+                <input type="time" name="rTime" id="time" th:field="*{time}">
+                <p>Type:</p>
                 <input type="text" name="rType" id="type" th:field="*{type}">
-                <p>Password:</p>
-                <input type="text" name="rAmount" id="amount" th:field="*{amount}">
+                <p>Amount:</p>
+                <input type="number" name="rAmount" id="amount" th:field="*{amount}">
                 <input type="submit" value="add" class="rmain__container__registerForm-submit">
             </form>
         </div>
