@@ -53,6 +53,8 @@ public class User {
         this.password = password;
     }
 
+    public List<Receipt> getReceipts() {return receipts;}
+
     public User(String uName, String password) {
         this.uName = uName;
         this.password = password;
