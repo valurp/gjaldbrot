@@ -16,6 +16,13 @@ public class ReceiptType {
         AFENGI,
         TOBAK
     }
+
+    /**
+     * A simple method providing colors for receipt types
+     * @param type is the receipt type
+     * @return color associated with receipt type
+     * @throws Exception if given type does not exist
+     */
     public static Color TypeColor(Type type) throws Exception {
         switch (type) {
             case MATARINNKAUP:
