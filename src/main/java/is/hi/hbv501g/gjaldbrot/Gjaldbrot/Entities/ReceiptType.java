@@ -1,6 +1,6 @@
 package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities;
+import java.awt.Color;
 
-import javafx.scene.paint.Color;
 
 /**
  * A small class containing an implementation of the enum Type, as well as a method for
@@ -19,17 +19,17 @@ public class ReceiptType {
     public static Color TypeColor(Type type) throws Exception {
         switch (type) {
             case MATARINNKAUP:
-                return Color.DARKBLUE;
+                return Color.BLUE;
             case FATNADUR:
-                return Color.DARKGREEN;
+                return Color.GREEN;
             case VEITINGASTADUR:
                 return Color.YELLOW;
             case SKEMMTUN_OG_AFTREYING:
-                return Color.DARKRED;
+                return Color.RED;
             case AFENGI:
-                return Color.MEDIUMPURPLE;
+                return Color.PINK;
             case TOBAK:
-                return Color.SADDLEBROWN;
+                return Color.BLACK;
             default:
                 break;
         }
