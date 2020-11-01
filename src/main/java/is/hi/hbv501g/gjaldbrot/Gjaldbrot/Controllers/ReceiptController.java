@@ -7,10 +7,12 @@ import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class ReceiptController {
     }
 
     @RequestMapping(value = "/addReceipt", method = RequestMethod.GET)
-    public String addreceiptGET(HttpSession session, Model model){
+    public String addReceiptGET(HttpSession session, Model model, Receipt receipt){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser != null) {
             model.addAttribute("userId", sessionUser.getId());
@@ -34,7 +36,7 @@ public class ReceiptController {
     }
 
     @RequestMapping(value = "/addReceipt", method = RequestMethod.POST)
-    public String addReceiptPost(Receipt receipt) {
+    public String addReceiptPost(@Valid Receipt receipt, BindingResult result) {
         receiptService.add(receipt);
         return "addReceipt";
     }
