@@ -24,4 +24,7 @@ public class ReceiptServiceImplementation implements ReceiptService {
     public void delete(Receipt receipt) {
         repository.delete(receipt);
     }
+    public Receipt change(Receipt receipt){
+        return repository.change(receipt.getAmount(), receipt.getType(), receipt.getId());
+    }
 }
