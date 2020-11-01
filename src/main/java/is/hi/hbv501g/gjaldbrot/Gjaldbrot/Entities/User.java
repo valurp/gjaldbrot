@@ -13,6 +13,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Receipt> receipts;
+
     public String uName;
 
     public String password;
