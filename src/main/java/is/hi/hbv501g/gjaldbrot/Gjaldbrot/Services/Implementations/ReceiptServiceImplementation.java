@@ -1,10 +1,13 @@
 package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.Implementations;
 
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.Receipt;
+import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Repositories.ReceiptRepository;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.ReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ReceiptServiceImplementation implements ReceiptService {
@@ -26,5 +29,9 @@ public class ReceiptServiceImplementation implements ReceiptService {
     }
     public Receipt change(Receipt receipt){
         return repository.change(receipt.getAmount(), receipt.getType(), receipt.getId());
+    }
+
+    public List<Receipt> getReceipts(User u) {
+        return repository.getUsersReceipts(u.getId());
     }
 }
