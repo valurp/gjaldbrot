@@ -42,9 +42,15 @@ public class UserServiceImplementation implements UserService {
         User exists = findByUName(user.uName);
         if(exists != null){
             if(exists.password.equals(user.password)){
+                System.out.println(user);
                 return user;
             }
         }
         return null;
+    }
+
+    @Override
+    public User getUserByName(String uName) {
+        return repository.getUserByName(uName);
     }
 }

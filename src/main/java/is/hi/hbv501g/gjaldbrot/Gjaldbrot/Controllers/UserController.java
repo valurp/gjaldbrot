@@ -65,6 +65,8 @@ public class UserController {
         User exists = userService.login(user);
         if(exists != null){
             session.setAttribute("LoggedInUser", user);
+            userService.getUserByName(user.getuName());
+            System.out.println(userService.getUserByName(user.getuName()));
             return "redirect:/mainPage";
         }
         return "redirect:/";

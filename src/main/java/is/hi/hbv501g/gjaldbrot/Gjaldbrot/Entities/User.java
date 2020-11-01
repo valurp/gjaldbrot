@@ -13,6 +13,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Receipt> receipts;
 
@@ -34,7 +35,7 @@ public class User {
 
     @Override
     public String toString() {
-        return uName;
+        return ""+id+" "+uName+" "+password;
     }
 
     public String getuName() {

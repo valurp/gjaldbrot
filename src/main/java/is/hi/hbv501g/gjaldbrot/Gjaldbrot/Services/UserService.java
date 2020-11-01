@@ -1,6 +1,7 @@
 package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services;
 
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -10,4 +11,6 @@ public interface UserService {
     List<User> findAll();
     User findByUName(String uName);
     User login(User user);
+
+    User getUserByName(String uName);
 }

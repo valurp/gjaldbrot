@@ -13,23 +13,30 @@ public class Receipt {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
     private User user;
     
-    public Date date;
-    public LocalTime time;
-    public Type type;
-    public double amount;
+    private Date date;
+    private LocalTime time;
+    private Type type;
+    private int amount;
 
     public long getId() {
         return id;
+    }
+
+    public Receipt() {
+
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setId(long id) {
         this.id = id;
     }
 
-    public Date getuDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -52,15 +59,15 @@ public class Receipt {
     public void setType(Type type) {
         this.type = type;
     }
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public Receipt(Date date, LocalTime time, Type type, double amount) {
+    public Receipt(Date date, LocalTime time, Type type, int amount) {
         this.date = date;
         this.time = time;
         this.type = type;
