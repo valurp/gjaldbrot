@@ -24,7 +24,18 @@ public class ReceiptController {
     }
 
     @RequestMapping(value = "/addReceipt", method = RequestMethod.GET)
-    public String addreceiptGET(User user){
+    public String addreceiptGET(HttpSession session, Model model){
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser != null) {
+            model.addAttribute("userId", sessionUser.getId());
+            return "addReceipt";
+        }
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/addReceipt", method = RequestMethod.POST)
+    public String addReceiptPost(Receipt receipt) {
+        receiptService.add(receipt);
         return "addReceipt";
     }
 
