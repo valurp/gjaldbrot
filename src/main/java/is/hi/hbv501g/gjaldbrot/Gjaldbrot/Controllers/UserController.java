@@ -81,4 +81,15 @@ public class UserController {
         }
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutGET(HttpSession session, Model model){
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if(sessionUser != null){
+            sessionUser = null;
+            model.addAttribute("loggedinuser", sessionUser);
+            return "login";
+        }
+        return "redirect:/";
+    }
 }
