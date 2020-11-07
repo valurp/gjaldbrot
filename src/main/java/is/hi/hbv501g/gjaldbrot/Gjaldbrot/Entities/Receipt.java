@@ -113,7 +113,7 @@ public class Receipt {
     }
 
     /**
-     * 
+     *
      * @param date
      * @param time
      * @param type
