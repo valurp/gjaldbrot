@@ -20,6 +20,10 @@ public class Receipt {
     private Type type;
     private int amount;
 
+    /**
+     *
+     * @return
+     */
     public long getId() {
         return id;
     }
@@ -28,45 +32,93 @@ public class Receipt {
 
     }
 
+    /**
+     *
+     * @param user
+     */
     public void setUser(User user) {
         this.user = user;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     *
+     * @param date
+     */
     public void setDate(Date date) {
         this.date = date;
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalTime getTime() {
         return time;
     }
 
+    /**
+     *
+     * @param time
+     */
     public void setTime(LocalTime time) {
         this.time = time;
     }
 
+    /**
+     *
+     * @return
+     */
     public Type getType() {
         return type;
     }
 
+    /**
+     *
+     * @param type
+     */
     public void setType(Type type) {
         this.type = type;
     }
+
+    /**
+     *
+     * @return
+     */
     public int getAmount() {
         return amount;
     }
 
+    /**
+     *
+     * @param amount
+     */
     public void setAmount(int amount) {
         this.amount = amount;
     }
 
+    /**
+     * 
+     * @param date
+     * @param time
+     * @param type
+     * @param amount
+     */
     public Receipt(Date date, LocalTime time, Type type, int amount) {
         this.date = date;
         this.time = time;

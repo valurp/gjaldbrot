@@ -5,6 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ConfigController {
+    /**
+     * CSS
+     * @return styless.css connection
+     */
     @RequestMapping("css/styles.css")
     public String CSS() {
         return "css/styles.css";
