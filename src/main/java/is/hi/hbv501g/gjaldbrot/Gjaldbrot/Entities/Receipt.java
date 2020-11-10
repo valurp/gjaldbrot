@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.Date;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptType.Type;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "Receipt")
@@ -14,7 +15,8 @@ public class Receipt {
 
     @ManyToOne
     private User user;
-    
+
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date date;
     private LocalTime time;
     private Type type;
@@ -28,6 +30,10 @@ public class Receipt {
         return id;
     }
 
+    @Override
+    public String toString(){
+        return "" + id + "\n" + date + "\n" + time + "\n" + type + "\n" + amount;
+    }
     public Receipt() {
 
     }

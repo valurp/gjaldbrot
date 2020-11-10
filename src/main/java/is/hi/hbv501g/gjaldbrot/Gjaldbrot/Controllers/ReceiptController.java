@@ -76,6 +76,9 @@ public class ReceiptController {
         System.out.println(""+sessionUser);
         if(sessionUser != null){
             List<Receipt> receipts = receiptService.getReceipts(userService.getUserByName(sessionUser.getuName()));
+            for(Receipt s: receipts){
+                System.out.println(s);
+            }
             model.addAttribute("receipts", receipts);
             return "getAllReceipts";
         }
