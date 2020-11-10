@@ -7,49 +7,50 @@
     <title>Add Receipt</title>
 </head>
 <body>
-<div class="header"></div>
-<input type="checkbox" class="openSidebarMenu navbarInput" id="openSidebarMenu">
-<label for="openSidebarMenu" class="sidebarIconToggle">
-    <div class="spinner diagonal part-1"></div>
-    <div class="spinner horizontal"></div>
-    <div class="spinner diagonal part-2"></div>
-</label>
-<div id="sidebarMenu">
-    <ul class="sidebarMenuInner">
-        <li><a href="/mainPage" target="_blank">Gjaldbrot<span>Menu</span></a></li>
-        <li><a href="/getAllReceipts" target="_blank">Overview</a></li>
-        <li><a href="/addReceipt" target="_blank">Add receipt</a></li>
-        <li><a href="" target="_blank">Savings</a></li>
-        <li><a href="" target="_blank">Contact</a></li>
-        <li><a href="/logout" target="_blank">logout</a></li>
-    </ul>
-</div>
-<div>
-    <h1>Get All Receipts</h1>
-</div>
-<div th:switch="${receipts}">
-    <h2 th:case="null">There are no receipts</h2>
-    <div th:case="*">
-        <h2>Users - Receipts</h2>
-        <table>
-            <thead>
-            <tr>
-                <td>"DATE"</td>
-                <td>"TIME"</td>
-                <td>"TYPE"</td>
-                <td>"AMOUNT"</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="receipt : ${receipts}">
-                <td th:text="${receipt.date}"></td>
-                <td th:text="${receipt.time}"></td>
-                <td th:text="${receipt.type}"></td>
-                <td th:text="${receipt.amount}"></td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="header">
+        <input type="checkbox" class="navbarInput" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="spinner diagonal part-1"></div>
+            <div class="spinner horizontal"></div>
+            <div class="spinner diagonal part-2"></div>
+        </label>
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+                <li><a href="/mainPage">Gjaldbrot<span>Menu</span></a></li>
+                <li><a href="/overView">Overview</a></li>
+                <li><a href="/addReceipt">Add receipt</a></li>
+                <li><a href="">Savings</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="/logout">logout</a></li>
+            </ul>
+        </div>
     </div>
-</div>
+    <div>
+        <h1>Get All Receipts</h1>
+    </div>
+    <div th:switch="${receipts}">
+        <h2 th:case="null">There are no receipts</h2>
+        <div th:case="*">
+            <h2>Users - Receipts</h2>
+            <table>
+                <thead>
+                <tr>
+                    <td>"DATE"</td>
+                    <td>"TIME"</td>
+                    <td>"TYPE"</td>
+                    <td>"AMOUNT"</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="receipt : ${receipts}">
+                    <td th:text="${receipt.date}"></td>
+                    <td th:text="${receipt.time}"></td>
+                    <td th:text="${receipt.type}"></td>
+                    <td th:text="${receipt.amount}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
