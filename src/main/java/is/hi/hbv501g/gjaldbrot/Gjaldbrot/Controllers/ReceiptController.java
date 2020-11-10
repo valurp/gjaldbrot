@@ -1,6 +1,7 @@
 package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Controllers;
 
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.Receipt;
+import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptHost;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.ReceiptService;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.UserService;
@@ -39,8 +40,9 @@ public class ReceiptController {
      * @return addReceipt.html view or redirects to the front page.
      */
     @RequestMapping(value = "/addReceipt", method = RequestMethod.GET)
-    public String addReceiptGET(HttpSession session, Model model, Receipt receipt){
+    public String addReceiptGET(HttpSession session, Model model, ReceiptHost receipt){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
+        model.addAttribute("receipt", receipt);
         if(sessionUser != null) {
             model.addAttribute("userId", sessionUser.getId());
             return "addReceipt";
@@ -57,10 +59,11 @@ public class ReceiptController {
      * @return view of the mainPage.html.
      */
     @RequestMapping(value = "/addReceipt", method = RequestMethod.POST)
-    public String addReceiptPost(@Valid Receipt receipt, BindingResult result, Model model, HttpSession session) {
+    public String addReceiptPost(@Valid ReceiptHost receipt, BindingResult result, Model model, HttpSession session) throws Exception{
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-        receipt.setUser(userService.getUserByName(sessionUser.getuName()));
-        receiptService.add(receipt);
+        Receipt newReceipt = receipt.createReceipt();
+        newReceipt.setUser(userService.getUserByName(sessionUser.getuName()));
+        receiptService.add(newReceipt);
         return "mainPage";
     }
 
@@ -76,9 +79,6 @@ public class ReceiptController {
         System.out.println(""+sessionUser);
         if(sessionUser != null){
             List<Receipt> receipts = receiptService.getReceipts(userService.getUserByName(sessionUser.getuName()));
-            for(Receipt s: receipts){
-                System.out.println(s);
-            }
             model.addAttribute("receipts", receipts);
             return "getAllReceipts";
         }
