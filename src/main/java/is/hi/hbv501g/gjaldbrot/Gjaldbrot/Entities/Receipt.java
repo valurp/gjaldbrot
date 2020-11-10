@@ -21,8 +21,8 @@ public class Receipt {
     private int amount;
 
     /**
-     *
-     * @return
+     * getId
+     * @return id of receipt
      */
     public long getId() {
         return id;
@@ -33,91 +33,91 @@ public class Receipt {
     }
 
     /**
-     *
-     * @param user
+     * setUser(User user)
+     * @param user user entity to set
      */
     public void setUser(User user) {
         this.user = user;
     }
 
     /**
-     *
-     * @param id
+     *  setId(Long id)
+     * @param id id of receipt to set
      */
     public void setId(long id) {
         this.id = id;
     }
 
     /**
-     *
-     * @return
+     * getDate()
+     * @return date of receipt
      */
     public Date getDate() {
         return date;
     }
 
     /**
-     *
-     * @param date
+     * setDate(Date date)
+     * @param date date of receipt to set
      */
     public void setDate(Date date) {
         this.date = date;
     }
 
     /**
-     *
-     * @return
+     * getTime()
+     * @return time of the receipt
      */
     public LocalTime getTime() {
         return time;
     }
 
     /**
-     *
-     * @param time
+     * setTime(LocalTime time)
+     * @param time time to receipt set
      */
     public void setTime(LocalTime time) {
         this.time = time;
     }
 
     /**
-     *
-     * @return
+     * getType()
+     * @return type of the receipt
      */
     public Type getType() {
         return type;
     }
 
     /**
-     *
-     * @param type
+     * setType(Type type)
+     * @param type type of receipt to set
      */
     public void setType(Type type) {
         this.type = type;
     }
 
     /**
-     *
-     * @return
+     * getAmount()
+     * @return amount of the receipt
      */
     public int getAmount() {
         return amount;
     }
 
     /**
-     *
-     * @param amount
+     * setAmount(int amount)
+     * @param amount amount of the receipt to set
      */
     public void setAmount(int amount) {
         this.amount = amount;
     }
 
     /**
-     *
-     * @param date
-     * @param time
-     * @param type
-     * @param amount
+     * Receipt(Date date, LocalTime time, Type type, int amount)
+     * @param date date of the receipt
+     * @param time time of the receipt
+     * @param type type of the receipt
+     * @param amount amount of the receipt
      */
     public Receipt(Date date, LocalTime time, Type type, int amount) {
         this.date = date;

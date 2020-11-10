@@ -24,38 +24,74 @@ public class User {
     public User() {
     }
 
-
+    /**
+     * getId()
+     * @return users id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * setId(long id)
+     * @param id sets users id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * toString()
+     * @return values of the user (id, uName and password) as a string
+     */
     @Override
     public String toString() {
         return ""+id+" "+uName+" "+password;
     }
 
+    /**
+     * getuName()
+     * @return users username
+     */
     public String getuName() {
         return uName;
     }
 
+    /**
+     * setuName(String uName)
+     * @param uName sets the users username
+     */
     public void setuName(String uName) {
         this.uName = uName;
     }
 
+    /**
+     * getPassword()
+     * @return users password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * setPassword(String password)
+     * @param password sets the users password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * getReceipts()
+     * @return list of all receipt made by the user
+     */
     public List<Receipt> getReceipts() {return receipts;}
 
+    /**
+     * User(String uName, String password)
+     * @param uName sets the users username
+     * @param password sets the users password
+     */
     public User(String uName, String password) {
         this.uName = uName;
         this.password = password;
