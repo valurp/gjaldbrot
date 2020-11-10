@@ -140,7 +140,7 @@ h1{
 /*** Header ***/
 
 .header {
-    display: block;
+    display: flex;
     margin: 0 auto;
     width: 100%;
     max-width: 100%;
@@ -149,13 +149,17 @@ h1{
     height: 60px!important;
     overflow: hidden;
     z-index: 10;
+    top: 0;
+    position: sticky;
 }
+
 .main {
     margin: 0 auto;
     display: block;
     height: 100%;
     margin-top: 60px;
 }
+
 .mainInner{
     display: table;
     height: 100%;
@@ -204,11 +208,11 @@ h1{
     cursor: pointer;
     text-decoration: none;
 }
-input[type="checkbox"]:checked ~ #sidebarMenu {
+.navbarInput:checked ~ #sidebarMenu {
     transform: translateX(0);
 }
 
-input[type=checkbox] {
+.navbarInput {
     transition: all 0.3s;
     box-sizing: border-box;
     display: none;
@@ -217,7 +221,7 @@ input[type=checkbox] {
     transition: all 0.3s;
     box-sizing: border-box;
     cursor: pointer;
-    position: absolute;
+    position: sticky;
     z-index: 99;
     height: 100%;
     width: 100%;
@@ -254,20 +258,24 @@ input[type=checkbox] {
     float: left;
     margin-top: 3px;
 }
-input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+.navbarInput:checked ~ .sidebarIconToggle > .horizontal {
     transition: all 0.3s;
     box-sizing: border-box;
     opacity: 0;
 }
-input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+.navbarInput:checked ~ .sidebarIconToggle > .diagonal.part-1 {
     transition: all 0.3s;
     box-sizing: border-box;
     transform: rotate(135deg);
     margin-top: 8px;
 }
-input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+.navbarInput:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     transition: all 0.3s;
     box-sizing: border-box;
     transform: rotate(-135deg);
     margin-top: -9px;
+}
+
+.overview_input{
+    display: inline;
 }

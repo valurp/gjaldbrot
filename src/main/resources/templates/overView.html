@@ -4,45 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>Title</title>
+    <title>Gjaldbrot - Overview</title>
 </head>
 <body>
-<div class="header"></div>
-<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-<label for="openSidebarMenu" class="sidebarIconToggle">
-    <div class="spinner diagonal part-1"></div>
-    <div class="spinner horizontal"></div>
-    <div class="spinner diagonal part-2"></div>
-</label>
-<div id="sidebarMenu">
-    <ul class="sidebarMenuInner">
-        <li><a href="#" target="_blank">Overview<span>Menu</span></a></li>
-        <li><a href="/overView" target="_blank">Overview</a></li>
-        <li><a href="/addReceipt" target="_blank">Add receipt</a></li>
-        <li><a href="" target="_blank">Savings</a></li>
-        <li><a href="" target="_blank">Contact</a></li>
-        <li><a href="/logout" target="_blank">logout</a></li>
-    </ul>
-</div>
-<main>
-    <div id="receive_data" th:attr="data-receipts=${receipts}"></div>
-    <canvas id="myChart" width="400" height="400"></canvas>
-    <form>
-        <label for="From">Frá</label>
-        <input type="month" id="From" name="From"><br>
-        <label for="To">Til</label>
-        <input type="month" id="To" name="To"><br>
-        <label for="matur">Matarinnkaup</label>
-        <input type="checkbox" id="matur" name="matur" value="MATARINNKAUP"><br>
-        <label for="leiga">Leiga</label>
-        <input type="checkbox" id="leiga" name="leiga" value="LEIGA"><br>
-        <label for="fatnadur">Fatnaður</label>
-        <input type="checkbox" id="fatnadur" name="fatnadur" value="FATNAÐUR"><br>
-        <label for="afengi">Áfengi</label>
-        <input type="checkbox" id="afengi" name="afengi" value="AFENGI"><br>
-    </form>
-</main>
-<script src="js/node_modules/chart.js/dist/Chart.js"></script>
-<script src="js/foo.js"></script>
+    <div class="header">
+        <input type="checkbox" class="navbarInput" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="spinner diagonal part-1"></div>
+            <div class="spinner horizontal"></div>
+            <div class="spinner diagonal part-2"></div>
+        </label>
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+                <li><a href="/mainPage">Gjaldbrot<span>Menu</span></a></li>
+                <li><a href="/overView">Overview</a></li>
+                <li><a href="/addReceipt">Add receipt</a></li>
+                <li><a href="">Savings</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="/logout">logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <main>
+        <div id="receive_data" th:attr="data-receipts=${receipts}"></div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <form>
+            <label for="From">Frá</label>
+            <input type="month" id="From" name="From"><br>
+            <label for="To">Til</label>
+            <input type="month" id="To" name="To"><br>
+            <label for="matur">Matarinnkaup</label>
+            <input class= "overview_input" type="checkbox" id="matur" name="matur" value="MATARINNKAUP"><br>
+            <label for="leiga">Leiga</label>
+            <input class= "overview_input" type="checkbox" id="leiga" name="leiga" value="LEIGA"><br>
+            <label for="fatnadur">Fatnaður</label>
+            <input class= "overview_input" type="checkbox" id="fatnadur" name="fatnadur" value="FATNAÐUR"><br>
+            <label for="afengi">Áfengi</label>
+            <input class= "overview_input" type="checkbox" id="afengi" name="afengi" value="AFENGI"><br>
+        </form>
+    </main>
+    <script src="js/node_modules/chart.js/dist/Chart.js"></script>
+    <script src="js/foo.js"></script>
 </body>
 </html>
