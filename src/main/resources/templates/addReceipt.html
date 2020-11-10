@@ -28,8 +28,7 @@
         <h1>Add Receipt</h1>
     </div>
     <main class="rmain">
-        <div class="rmain__container">1
-            <h1>Register</h1>
+        <div class="rmain__container">
             <form action="#" th:action="@{/addReceipt}" th:object="${receipt}" class="rmain__container__registerForm" method="post">
                 <p>Date:</p>
                 <input type="date" name="rDate" id="date" th:field="*{date}">
