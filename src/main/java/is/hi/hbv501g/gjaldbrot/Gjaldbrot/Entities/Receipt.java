@@ -73,4 +73,8 @@ public class Receipt {
         this.type = type;
         this.amount = amount;
     }
+
+    public Receipt(int amount) {
+        this.amount = amount;
+    }
 }
