@@ -13,39 +13,29 @@
         <div class="overview">
             <canvas id="myChart" width="400" height="400"></canvas>
             <form class = "overview_control">
-                <div class="overview_types">
-                    <div class="overview_type_el">
-                        <label class="overview_label" for="from">Frá</label>
-                        <input class="overview_input" type="month" id="from" name="from">
-                    </div>
-                    <div class="overview_type_el">
-                        <label class="overview_label"  for="to">Til</label>
-                        <input class = "overview_input" type="month" id="to" name="to">
-                    </div>
-                    <div class="overview_type_el">
-                        <label class="overview_label"  for="matur">Matarinnkaup</label>
-                        <input class= "overview_input" type="checkbox" checked = "true"  id="matur" name="matur" value="MATARINNKAUP">
-                    </div>
-                    <div class="overview_type_el">
-                        <label class="overview_label"  for="tobak">Tóbak</label>
-                        <input class= "overview_input" type="checkbox" checked = "true" id="tobak" name="tobak" value="TOBAK">
-                    </div>
-                    <div class="overview_type_el">
-                        <label class="overview_label"  for="fatnadur">Fatnaður</label>
-                        <input class= "overview_input" type="checkbox" checked = "true"  id="fatnadur" name="fatnadur" value="FATNAÐUR">
-                    </div>
-                    <div class="overview_type_el">
-                        <label class="overview_label"  for="afengi">Áfengi</label>
-                        <input class= "overview_input" type="checkbox" checked = "true"  id="afengi" name="afengi" value="AFENGI">
-                    </div>
-                    <div class="overview_type_el">
-                        <label class="overview_label"  for="veitingar">Veitingastaðir</label>
-                        <input class= "overview_input" type="checkbox" checked = "true"  id="veitingar" name="veitingar" value="VEITINGAR">
-                    </div>
-                    <div class="overview_type_el">
-                        <label class="overview_label"  for="skemmtun">Skemmtun</label>
-                        <input class= "overview_input" type="checkbox" checked = "true"  id="skemmtun" name="skemmtun" value="SKEMMTUN">
-                    </div>
+                <div class="overview_element">
+                    <label class="overview_label"  for="matur">Matarinnkaup</label>
+                    <input class= "overview_input" type="checkbox" checked = "true"  id="matur" name="matur" onclick="changeGraph(this)">
+                </div>
+                <div class="overview_element">
+                    <label class="overview_label"  for="fatnadur">Fatnaður</label>
+                    <input class= "overview_input" type="checkbox" checked = "true"  id="fatnadur" name="fatnadur" onclick="changeGraph(this)">
+                </div>
+                <div class="overview_element">
+                    <label class="overview_label"  for="afengi">Áfengi</label>
+                    <input class= "overview_input" type="checkbox" checked = "true"  id="afengi" name="afengi" onclick="changeGraph(this)">
+                </div>
+                <div class="overview_element">
+                    <label class="overview_label"  for="tobak">Tóbak</label>
+                    <input class= "overview_input" type="checkbox" checked = "true" id="tobak" name="tobak" onclick="changeGraph(this)">
+                </div>
+                <div class="overview_element">
+                    <label class="overview_label"  for="skemmtun">Skemmtun</label>
+                    <input class= "overview_input" type="checkbox" checked = "true"  id="skemmtun" name="skemmtun" onclick="changeGraph(this)">
+                </div>
+                <div class="overview_element">
+                    <label class="overview_label"  for="veitingar">Veitingastaðir</label>
+                    <input class= "overview_input" type="checkbox" checked = "true"  id="veitingar" name="veitingar" onclick="changeGraph(this)">
                 </div>
             </form>
         </div>

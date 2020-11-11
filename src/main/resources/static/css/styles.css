@@ -279,26 +279,57 @@ h1{
 .overview {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .overview_control {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
-    margin-left: 1rem;
+    border: 2px solid #3339;
+    border-radius: 3px;
+    padding: 10px;
 }
 
-.overview_type_el {
+.overview_element {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
 }
 
 .overview_label {
-    margin-right: 2rem;
+    flex-grow: 1;
 }
 
 .overview_input {
-    max-width: 50%;
+  -webkit-appearance: none;
+  border: 1px solid #cacece;
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
+.overview_input:checked:after {
+  content: '\2714';
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 3px;
+  color: #000;
+}
+#matur {
+  background-color: rgba(250,50,0,0.8);
+}
+#fatnadur {
+  background-color: rgba(24,128,68,0.8);
+}
+#afengi {
+  background-color: rgba(209,131,192,0.8);
+}
+#tobak {
+  background-color: rgba(52,236,254,0.8);
+}
+#skemmtun {
+  background-color: rgba(238,233,52,0.8);
+}
+#veitingar {
+  background-color: rgba(255,51,30,0.8);
 }

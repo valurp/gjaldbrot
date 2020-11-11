@@ -60,9 +60,10 @@ function getInputIndex(name) {
   index += (cat.tobak.visible ? 1 : 0);
   //skemmtun
   if (cat[name].index == 4){ return index; }
-  index += (cat.fatnadur.visible ? 1 : 0);
+  index += (cat.skemmtun.visible ? 1 : 0);
   //veitingar
-  return index;
+  if (cat[name].index == 5){ return index; }
+  return -1;
 }
 
 
@@ -71,9 +72,9 @@ function changeGraph(checkbox) {
   // true: sýna, false: fela
   let op = checkbox.checked;
   let myBar = window.myBar;
+  let index = getInputIndex(category);
   // sýna
   if (op) {
-    let index = getInputIndex(category);
     myBar.data.labels.splice(index, 0, cat[category].label);
     myBar.data.datasets[0].data.splice(index, 0, cat[category].value);
     myBar.data.datasets[0].backgroundColor.splice(index, 0, cat[category].color);
@@ -81,7 +82,6 @@ function changeGraph(checkbox) {
     cat[category].visible = true;
   }
   else {//fela
-    let index = cat[category].index;
     myBar.data.labels.splice(index, 1);
     myBar.data.datasets[0].data.splice(index, 1);
     myBar.data.datasets[0].backgroundColor.splice(index, 1);
