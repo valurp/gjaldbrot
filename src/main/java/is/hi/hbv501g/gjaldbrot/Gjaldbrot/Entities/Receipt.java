@@ -14,7 +14,7 @@ public class Receipt {
 
     @ManyToOne
     private User user;
-    
+
     private Date date;
     private LocalTime time;
     private Type type;
@@ -28,6 +28,10 @@ public class Receipt {
         return id;
     }
 
+    @Override
+    public String toString(){
+        return "" + id + "\n" + date + "\n" + time + "\n" + type + "\n" + amount;
+    }
     public Receipt() {
 
     }

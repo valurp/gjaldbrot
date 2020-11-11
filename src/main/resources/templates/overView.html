@@ -7,24 +7,7 @@
     <title>Gjaldbrot - Overview</title>
 </head>
 <body>
-    <div class="header">
-        <input type="checkbox" class="navbarInput" id="openSidebarMenu">
-        <label for="openSidebarMenu" class="sidebarIconToggle">
-            <div class="spinner diagonal part-1"></div>
-            <div class="spinner horizontal"></div>
-            <div class="spinner diagonal part-2"></div>
-        </label>
-        <div id="sidebarMenu">
-            <ul class="sidebarMenuInner">
-                <li><a href="/mainPage">Gjaldbrot<span>Menu</span></a></li>
-                <li><a href="/overView">Overview</a></li>
-                <li><a href="/addReceipt">Add receipt</a></li>
-                <li><a href="">Savings</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="/logout">logout</a></li>
-            </ul>
-        </div>
-    </div>
+    <header th:insert="fragments/header.html :: header"> </header>
     <main>
         <div id="receive_data" th:attr="data-receipts=${receipts}"></div>
         <div class="overview">
