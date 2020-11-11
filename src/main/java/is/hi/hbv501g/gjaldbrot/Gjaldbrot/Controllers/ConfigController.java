@@ -29,7 +29,7 @@ public class ConfigController {
         int[] days =   {12, 13, 12, 12, 10, 10, 13, 12, 10, 11};
         ArrayList<Receipt> receipts = new ArrayList<Receipt>();
         for(int i = 0; i < 10; i++){
-            calendar.set(2020, months[i], days[i],0,0);
+            calendar.set(2020, months[i], days[i],10,0);
             receipts.add(new Receipt(calendar.getTime(),
                     LocalTime.now(),
                     Type.MATARINNKAUP,

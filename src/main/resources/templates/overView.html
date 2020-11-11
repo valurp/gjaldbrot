@@ -27,21 +27,45 @@
     </div>
     <main>
         <div id="receive_data" th:attr="data-receipts=${receipts}"></div>
-        <canvas id="myChart" width="400" height="400"></canvas>
-        <form>
-            <label for="From">Frá</label>
-            <input type="month" id="From" name="From"><br>
-            <label for="To">Til</label>
-            <input type="month" id="To" name="To"><br>
-            <label for="matur">Matarinnkaup</label>
-            <input class= "overview_input" type="checkbox" id="matur" name="matur" value="MATARINNKAUP"><br>
-            <label for="leiga">Leiga</label>
-            <input class= "overview_input" type="checkbox" id="leiga" name="leiga" value="LEIGA"><br>
-            <label for="fatnadur">Fatnaður</label>
-            <input class= "overview_input" type="checkbox" id="fatnadur" name="fatnadur" value="FATNAÐUR"><br>
-            <label for="afengi">Áfengi</label>
-            <input class= "overview_input" type="checkbox" id="afengi" name="afengi" value="AFENGI"><br>
-        </form>
+        <div class="overview">
+            <canvas id="myChart" width="400" height="400"></canvas>
+            <form class = "overview_control">
+                <div class="overview_types">
+                    <div class="overview_type_el">
+                        <label class="overview_label" for="from">Frá</label>
+                        <input class="overview_input" type="month" id="from" name="from">
+                    </div>
+                    <div class="overview_type_el">
+                        <label class="overview_label"  for="to">Til</label>
+                        <input class = "overview_input" type="month" id="to" name="to">
+                    </div>
+                    <div class="overview_type_el">
+                        <label class="overview_label"  for="matur">Matarinnkaup</label>
+                        <input class= "overview_input" type="checkbox" checked = "true"  id="matur" name="matur" value="MATARINNKAUP">
+                    </div>
+                    <div class="overview_type_el">
+                        <label class="overview_label"  for="tobak">Tóbak</label>
+                        <input class= "overview_input" type="checkbox" checked = "true" id="tobak" name="tobak" value="TOBAK">
+                    </div>
+                    <div class="overview_type_el">
+                        <label class="overview_label"  for="fatnadur">Fatnaður</label>
+                        <input class= "overview_input" type="checkbox" checked = "true"  id="fatnadur" name="fatnadur" value="FATNAÐUR">
+                    </div>
+                    <div class="overview_type_el">
+                        <label class="overview_label"  for="afengi">Áfengi</label>
+                        <input class= "overview_input" type="checkbox" checked = "true"  id="afengi" name="afengi" value="AFENGI">
+                    </div>
+                    <div class="overview_type_el">
+                        <label class="overview_label"  for="veitingar">Veitingastaðir</label>
+                        <input class= "overview_input" type="checkbox" checked = "true"  id="veitingar" name="veitingar" value="VEITINGAR">
+                    </div>
+                    <div class="overview_type_el">
+                        <label class="overview_label"  for="skemmtun">Skemmtun</label>
+                        <input class= "overview_input" type="checkbox" checked = "true"  id="skemmtun" name="skemmtun" value="SKEMMTUN">
+                    </div>
+                </div>
+            </form>
+        </div>
     </main>
     <script src="js/node_modules/chart.js/dist/Chart.js"></script>
     <script src="js/foo.js"></script>

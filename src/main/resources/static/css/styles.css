@@ -276,6 +276,29 @@ h1{
     margin-top: -9px;
 }
 
-.overview_input{
-    display: inline;
+.overview {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.overview_control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+}
+
+.overview_type_el {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.overview_label {
+    margin-right: 2rem;
+}
+
+.overview_input {
+    max-width: 50%;
 }
