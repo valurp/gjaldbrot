@@ -7,23 +7,7 @@
     <title>Gjaldbrot - Main</title>
 </head>
 <body>
-    <div class="header"></div>
-    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-    <label for="openSidebarMenu" class="sidebarIconToggle">
-        <div class="spinner diagonal part-1"></div>
-        <div class="spinner horizontal"></div>
-        <div class="spinner diagonal part-2"></div>
-    </label>
-    <div id="sidebarMenu">
-        <ul class="sidebarMenuInner">
-            <li><a href="" target="_blank">Overview<span>Menu</span></a></li>
-            <li><a href="/getAllReceipts" target="_blank">Overview</a></li>
-            <li><a href="/addReceipt" target="_blank">Add receipt</a></li>
-            <li><a href="" target="_blank">Savings</a></li>
-            <li><a href="" target="_blank">Contact</a></li>
-            <li><a href="/logout" target="_blank">Logout</a></li>
-        </ul>
-    </div>
+    <header th:insert="fragments/header.html :: header"> </header>
     <main>
         <p>Velkominn</p>
         <!--<p th:text="${loggedinuser.uName}"></p>-->

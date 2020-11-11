@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Gjaldbrot - Overview</title>
+</head>
+<body>
+    <header th:insert="fragments/header.html :: header"> </header>
+    <main>
+        <div id="receive_data" th:attr="data-receipts=${receipts}"></div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <form>
+            <label for="From">Frá</label>
+            <input type="month" id="From" name="From"><br>
+            <label for="To">Til</label>
+            <input type="month" id="To" name="To"><br>
+            <label for="matur">Matarinnkaup</label>
+            <input class= "overview_input" type="checkbox" id="matur" name="matur" value="MATARINNKAUP"><br>
+            <label for="leiga">Leiga</label>
+            <input class= "overview_input" type="checkbox" id="leiga" name="leiga" value="LEIGA"><br>
+            <label for="fatnadur">Fatnaður</label>
+            <input class= "overview_input" type="checkbox" id="fatnadur" name="fatnadur" value="FATNAÐUR"><br>
+            <label for="afengi">Áfengi</label>
+            <input class= "overview_input" type="checkbox" id="afengi" name="afengi" value="AFENGI"><br>
+        </form>
+    </main>
+    <script src="js/node_modules/chart.js/dist/Chart.js"></script>
+    <script src="js/foo.js"></script>
+</body>
+</html>
