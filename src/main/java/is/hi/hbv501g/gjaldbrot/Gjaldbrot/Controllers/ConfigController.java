@@ -58,4 +58,9 @@ public class ConfigController {
         model.addAttribute("receipts", writeReceipts(receipts));
         return "overView";
     }
+
+    @RequestMapping(value = "/comparison", method = RequestMethod.GET)
+    public String comparison(Model model) {
+        return "comparison";
+    }
 }
