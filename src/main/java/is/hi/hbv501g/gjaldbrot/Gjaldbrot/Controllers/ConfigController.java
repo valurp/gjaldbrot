@@ -22,6 +22,26 @@ public class ConfigController {
     @Autowired
     private ObjectMapper jsonMapper;
 
+    /*
+    * safnar saman upphæðum í útgjaldaflokka og skilar JSON streng
+    * sem er á forminu: "útgjaldaflokkur: upphæð"
+    * */
+    private String writeReceipts(ArrayList<Receipt> receipts){
+        int matur = 0, fot=0, afengi=0, tobak=0, skemmtun=0, veitingar=0;
+        for (Receipt r : receipts) {
+            if (r.getType() == Type.MATARINNKAUP) matur += r.getAmount();
+            else if (r.getType() == Type.FATNADUR) fot += r.getAmount();
+            else if (r.getType() == Type.AFENGI) afengi += r.getAmount();
+            else if (r.getType() == Type.TOBAK) tobak += r.getAmount();
+            else if (r.getType() == Type.SKEMMTUN_OG_AFTREYING) skemmtun += r.getAmount();
+            else if (r.getType() == Type.VEITINGASTADUR) veitingar += r.getAmount();
+        }
+        String JSON = String.format("{\"matur\":%d,\"fatnadur\":%d,\"afengi\":%d,\"tobak\":%d,\"skemmtun\":%d,\"veitingar\":%d}",
+                matur,fot,afengi,tobak,skemmtun,veitingar);
+        System.out.println(JSON);
+        return JSON;
+    }
+
     @RequestMapping(value = "/overView", method = RequestMethod.GET)
     public String overview(Model model){
         Calendar calendar = new GregorianCalendar();
@@ -35,16 +55,7 @@ public class ConfigController {
                     Type.MATARINNKAUP,
                     1000));
         }
-
-        String jsonReceipts;
-        try {
-            jsonReceipts = jsonMapper.writeValueAsString(receipts);
-        }
-        catch(Error | JsonProcessingException e){
-            jsonReceipts="";
-            System.out.println("got error on parsing");
-        }
-        model.addAttribute("receipts", jsonReceipts);
+        model.addAttribute("receipts", writeReceipts(receipts));
         return "overView";
     }
 }

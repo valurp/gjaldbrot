@@ -293,10 +293,14 @@ h1{
 .overview_element {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .overview_label {
     flex-grow: 1;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    color: #666;
+    font-size: 12px;
 }
 
 .overview_input {

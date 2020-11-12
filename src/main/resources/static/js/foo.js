@@ -62,8 +62,7 @@ function getInputIndex(name) {
   if (cat[name].index == 4){ return index; }
   index += (cat.skemmtun.visible ? 1 : 0);
   //veitingar
-  if (cat[name].index == 5){ return index; }
-  return -1;
+  return index;
 }
 
 
@@ -92,7 +91,14 @@ function changeGraph(checkbox) {
 
 
 function getData() {
-  return {
+    let data = JSON.parse(document.getElementById('receive_data').getAttribute('data-receipts'));
+    cat.matur.value = data.matur;
+    cat.fatnadur.value = data.fatnadur;
+    cat.afengi.value = data.afengi;
+    cat.tobak.value = data.tobak;
+    cat.skemmtun.value = data.skemmtun;
+    cat.veitingar.value = data.veitingar;
+    return {
     labels: [cat.matur.label, cat.fatnadur.label, cat.afengi.label, cat.tobak.label, cat.skemmtun.label, cat.veitingar.label],
     datasets: [
       {
@@ -100,9 +106,9 @@ function getData() {
         backgroundColor: [cat.matur.color, cat.fatnadur.color, cat.afengi.color, cat.tobak.color, cat.skemmtun.color, cat.veitingar.color],
         borderColor: 'rgba(0, 0, 0, 1)',
         borderWidth: 1,
-        data: [1000, 1000, 1500, 1500, 1110, 1000],
+        data: [data.matur, data.fatnadur, data.afengi, data.tobak, data.skemmtun, data.afengi],
       }]
-  };
+    };
 }
 
 document.addEventListener('DOMContentLoaded', () => {
