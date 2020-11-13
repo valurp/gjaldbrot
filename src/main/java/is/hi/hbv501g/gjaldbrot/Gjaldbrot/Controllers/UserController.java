@@ -3,6 +3,7 @@ package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Controllers;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -86,6 +87,20 @@ public class UserController {
      * @param session binds the current user to the session.
      * @return mainPage if the user exits if not redirect to the frontPage.
      */
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String loginPOST(@Valid User user, BindingResult result, Model model, HttpSession session){
+        if(result.hasErrors()){
+            return "login";
+        }
+        UserDetails exists = userService.loadUserByUsername(user.getName());
+        if(exists != null){
+            session.setAttribute("LoggedInUser", user);
+            userService.getUserByName(user.getName());
+            System.out.println(userService.getUserByName(user.getName()));
+            return "redirect:/mainPage";
+        }
+        return "redirect:/";
+    }
 
     /**
      * mainPageGET(HttpSession session, Model model)
