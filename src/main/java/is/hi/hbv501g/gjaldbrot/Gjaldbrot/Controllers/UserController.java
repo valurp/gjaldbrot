@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -59,7 +60,7 @@ public class UserController {
         if(result.hasErrors()){
             return "signup";
         }
-        User exists = userService.findByUName(user.uName);
+        User exists = userService.findByName(user.getName());
         if(exists == null){
             userService.save(user);
         }
@@ -85,20 +86,6 @@ public class UserController {
      * @param session binds the current user to the session.
      * @return mainPage if the user exits if not redirect to the frontPage.
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginPOST(@Valid User user, BindingResult result, Model model, HttpSession session){
-        if(result.hasErrors()){
-            return "login";
-        }
-        User exists = userService.login(user);
-        if(exists != null){
-            session.setAttribute("LoggedInUser", user);
-            userService.getUserByName(user.getuName());
-            System.out.println(userService.getUserByName(user.getuName()));
-            return "redirect:/mainPage";
-        }
-        return "redirect:/";
-    }
 
     /**
      * mainPageGET(HttpSession session, Model model)
@@ -131,5 +118,10 @@ public class UserController {
             return "login";
         }
         return "redirect:/";
+    }
+
+    @GetMapping("/login")
+    private String getLogin() {
+        return "login";
     }
 }

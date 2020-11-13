@@ -62,7 +62,7 @@ public class ReceiptController {
     public String addReceiptPost(@Valid ReceiptHost receipt, BindingResult result, Model model, HttpSession session) throws Exception{
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         Receipt newReceipt = receipt.createReceipt();
-        newReceipt.setUser(userService.getUserByName(sessionUser.getuName()));
+        newReceipt.setUser(userService.getUserByName(sessionUser.getName()));
         receiptService.add(newReceipt);
         return "mainPage";
     }
@@ -78,7 +78,7 @@ public class ReceiptController {
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         System.out.println(""+sessionUser);
         if(sessionUser != null){
-            List<Receipt> receipts = receiptService.getReceipts(userService.getUserByName(sessionUser.getuName()));
+            List<Receipt> receipts = receiptService.getReceipts(userService.getUserByName(sessionUser.getName()));
             model.addAttribute("receipts", receipts);
             return "getAllReceipts";
         }

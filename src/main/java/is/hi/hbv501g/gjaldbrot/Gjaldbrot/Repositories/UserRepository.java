@@ -12,8 +12,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User save(User user);
     void delete(User user);
     List<User> findAll();
-    User findByUName(String uName);
+    User findByName(String name);
 
     @Query(value = "Select * From User Where u_name = :userName", nativeQuery = true)
-    User getUserByName(@Param("userName") String uName);
+    User getUserByName(@Param("userName") String name);
 }

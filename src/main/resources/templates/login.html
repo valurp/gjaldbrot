@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns:th="https://thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -11,24 +11,32 @@
     <h1>Gjaldbrot</h1>
 </header>
 <main class="grid">
-    <div class="row">
-        <form class="login col_6" action="#" th:action="@{/login}" th:object="${user}" method="post">
-            <fieldset class="login_fieldset">
-                <legend>Innskráning</legend>
-                <label class="login_field row">
-                    <p class="login_id">Notendanafn</p>
-                    <input class="login_input" id="username" type="text" th:field="*{uName}" required>
-                </label>
-                <label class="login_field row">
-                    <p class="login_id">Lykilorð</p>
-                    <input class="login_input" id="password" type="password" th:field="*{password}" required>
-                </label>
-            </fieldset>
-            <input class="login_button" type="submit" value="Login"/>
+    <div class="container">
+        <h1>Innskráning</h1>
+        <div th:if="${param.error}" class="alert alert-danger">Rangt notendanafn.</div>
+        <div th:if="${param.logout}" class="alert alert-success">You have been logged out.</div>
+        <form th:action="@{/doLogin}" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-xs-2" for="username">Tölvupóstur:</label>
+                <div class="col-xs-10">
+                    <input id="username" type="text" name="username" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-2" for="password">Lykilorð: </label>
+                <div class="col-xs-10">
+                    <input id="password" type="password" name="password" />
+                </div>
+            </div>
+            <div class="form-actions col-xs-offset-2 col-xs-10">
+                <input type="submit" class="btn btn-primary" value="Innskráning" />
+            </div>
+            <a class="btn btn-outline-primary" href="/signup">Búa til aðgang</a>
+            <!-- <a class="btn btn-outline-primary"  th:href="@{/signup}">Búa til aðgang</a> -->
         </form>
     </div>
     <section class="row">
-        <p class="signup col_6">Ertu ekki með aðgang? Skráðu þig í Gjaldbrot <a href="signup">Hér</a></p>
+        <p class="signup col_6">Ertu ekki með aðgang? Skráðu þig í Gjaldbrot <a href="@{/signup}">Hér</a></p>
     </section>
 </main>
 <script src="/js/foo.js"></script>
