@@ -28,7 +28,10 @@
                         <div class="tableCol tableCol-3">
                             <img th:src="@{'types/' + ${receipt.type} + '.svg'}", th:alt="${receipt.type}">
                         </div>
-                        <div class="tableCol tableCol-4" th:text="${receipt.amount}"></div>
+                        <div class="tableCol tableCol-2" th:text="${receipt.amount}"></div>
+                        <div class="tableCol tableCol-1">
+                            <a th:href="'changeReceipt/'+${receipt.id}">Change Receipt</a>
+                        </div>
                     </li>
                 </ul>
             </div>
