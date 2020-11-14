@@ -149,6 +149,7 @@ h1 {
   font-weight: bold;
   padding: 20px;
   cursor: pointer;
+  height: 1.5em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -164,6 +165,9 @@ h1 {
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
+}
+.sidebarMenuInner li a img {
+  height: 100%;
 }
 
 .navbarInput:checked ~ #sidebarMenu {
