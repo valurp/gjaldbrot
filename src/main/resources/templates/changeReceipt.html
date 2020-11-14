@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Add Receipt</title>
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<div>
+    <h1>Add Receipt</h1>
+</div>
+<main class="rmain">
+    <div class="rmain__container">
+        <form action="#" th:action="@{/addReceipt}" th:object="${receipt}" class="rmain__container__registerForm" method="post">
+            <p>Date:</p>
+            <input type="date" name="rDate" id="date" th:field="*{date}">
+            <p>Time:</p>
+            <input type="time" name="rTime" id="time" th:field="*{time}">
+            <p>Type:</p>
+            <input type="number" name="rType" id="type" th:field="*{type}">
+            <p>Amount:</p>
+            <input type="number" name="rAmount" id="amount" th:field="*{amount}">
+            <input type="submit" value="add" class="rmain__container__registerForm-submit">
+        </form>
+    </div>
+</main>
+</body>
+</html>
