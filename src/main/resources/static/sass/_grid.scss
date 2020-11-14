@@ -1,0 +1,41 @@
+.grid{
+    display: flex;
+    flex-direction: column;
+
+    width: calc(100%-var(--offset));
+    max-width: var(--max_width);
+}
+.row{
+    display: flex;
+
+    width: 100%;
+    margin-bottom: var(--gutter);
+}
+.col_6{
+    width: 50%;
+}
+
+.offset_col_3{
+    margin-left: 25%;
+}
+
+@media (max-width:600px){
+    h1{
+        font-size: 18vw;
+    }
+    .login{
+        width:90%;
+    }
+    .signup{
+        width: 90%;
+    }
+}
+
+@media (max-width: 400px){
+    .login{
+        width:100%;
+    }
+    .signup{
+        width: 100%;
+    }
+}

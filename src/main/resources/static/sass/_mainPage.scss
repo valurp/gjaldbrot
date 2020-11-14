@@ -1,0 +1,12 @@
+.main__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main__container__select-value > button {
+    width: 100%;
+}
+
+.main__container__select-slide > select {
+    width: 100%;
+}
