@@ -15,25 +15,20 @@
         <div th:switch="${receipts}" class="allReceipt__container">
             <h2 th:case="null">There are no receipts</h2>
             <div th:case="*">
-                <h2 class = "allReceipt__container-tile">Users - Receipts</h2>
-                <table class = "allReceipt__container__table">
-                    <thead class = "allReceipt__container__table-head">
-                    <tr>
-                        <td>"DATE"</td>
-                        <td>"TIME"</td>
-                        <td>"TYPE"</td>
-                        <td>"AMOUNT"</td>
-                    </tr>
-                    </thead>
-                    <tbody class = "allReceipt__container__table-body">
-                    <tr th:each="receipt : ${receipts}">
-                        <td th:text="${receipt.date}"></td>
-                        <td th:text="${receipt.time}"></td>
-                        <td th:text="${receipt.type}"></td>
-                        <td th:text="${receipt.amount}"></td>
-                    </tr>
-                    </tbody>
-                </table>
+                <ul class= "responsive-table">
+                    <li class="table-header">
+                        <div class="tableCol tableCol-1">Date</div>
+                        <div class="tableCol tableCol-2">Time</div>
+                        <div class="tableCol tableCol-3">Type</div>
+                        <div class="tableCol tableCol-4">Amount</div>
+                    </li>
+                    <li class="table-row" th:each="receipt : ${receipts}">
+                        <div class="tableCol tableCol-1" th:text="${receipt.date}"></div>
+                        <div class="tableCol tableCol-2" th:text="${receipt.time}"></div>
+                        <div class="tableCol tableCol-3" th:text="${receipt.type}"></div>
+                        <div class="tableCol tableCol-4" th:text="${receipt.amount}"></div>
+                    </li>
+                </ul>
             </div>
         </div>
     </main>

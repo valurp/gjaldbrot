@@ -1,0 +1,25 @@
+.rmain__container__registerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    height: 80%;
+}
+
+.rmain__container__registerForm > input {
+    height: 1.5rem;
+    margin: 0 1em;
+    padding: 0 1em;
+}
+
+.rmain__container__registerForm > input:hover {
+    background-color: azure;
+}
+
+.rmain__container__registerForm > input:focus {
+    background-color: azure;
+}
+
+.rmain__container__registerForm > p {
+    text-align: center;
+}
