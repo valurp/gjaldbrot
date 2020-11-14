@@ -367,7 +367,11 @@ h1 {
   padding-right: 10px;
 }
 
+.responsive-table {
+  padding: 0;
+}
 .responsive-table li {
+  height: 3em;
   border-radius: 3px;
   padding: 25px 30px;
   display: flex;
@@ -392,6 +396,9 @@ h1 {
 }
 .responsive-table .tableCol-3 {
   flex-basis: 25%;
+}
+.responsive-table .tableCol-3 img {
+  height: 100%;
 }
 .responsive-table .tableCol-4 {
   flex-basis: 25%;

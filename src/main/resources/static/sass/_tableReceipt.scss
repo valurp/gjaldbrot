@@ -7,7 +7,9 @@
 }
 
 .responsive-table {
+    padding: 0;
   li {
+    height: 3em;
     border-radius: 3px;
     padding: 25px 30px;
     display: flex;
@@ -32,6 +34,9 @@
   }
   .tableCol-3 {
     flex-basis: 25%;
+    img {
+        height: 100%;
+    }
   }
   .tableCol-4 {
     flex-basis: 25%;

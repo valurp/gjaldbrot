@@ -25,7 +25,9 @@
                     <li class="table-row" th:each="receipt : ${receipts}">
                         <div class="tableCol tableCol-1" th:text="${receipt.date}"></div>
                         <div class="tableCol tableCol-2" th:text="${receipt.time}"></div>
-                        <div class="tableCol tableCol-3" th:text="${receipt.type}"></div>
+                        <div class="tableCol tableCol-3">
+                            <img th:src="@{'types/' + ${receipt.type} + '.svg'}", th:alt="${receipt.type}">
+                        </div>
                         <div class="tableCol tableCol-4" th:text="${receipt.amount}"></div>
                     </li>
                 </ul>
