@@ -13,7 +13,11 @@
 </div>
 <main class="rmain">
     <div class="rmain__container">
-        <form action="#" th:action="@{/addReceipt}" th:object="${receipt}" class="rmain__container__registerForm" method="post">
+        <script>
+            let url = window.location.href;
+            let id = url.substring(url.lastIndexOf('/')+1, url.length);
+        </script>
+        <form action="#" th:action="@{/changeReceipt}" th:object="${newReceipt}" class="rmain__container__registerForm" method="post">
             <p>Date:</p>
             <input type="date" name="rDate" id="date" th:field="*{date}">
             <p>Time:</p>
@@ -22,7 +26,7 @@
             <input type="number" name="rType" id="type" th:field="*{type}">
             <p>Amount:</p>
             <input type="number" name="rAmount" id="amount" th:field="*{amount}">
-            <input type="submit" value="add" class="rmain__container__registerForm-submit">
+            <input type="submit" value="Change" class="rmain__container__registerForm-submit">
         </form>
     </div>
 </main>

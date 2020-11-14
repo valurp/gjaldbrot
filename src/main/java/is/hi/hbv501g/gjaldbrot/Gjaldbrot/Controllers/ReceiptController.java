@@ -87,11 +87,24 @@ public class ReceiptController {
         return "redirect:/";
     }
 
-    @GetMapping("/changeReceipt/{id}")
-    private String getReceipt(@PathVariable("id") long id, Model model) {
-        Receipt receipt = receiptService.getReceiptById(id);
-        model.addAttribute("receipts", receipt);
+    @RequestMapping(value = "/changeReceipt/{id}", method = RequestMethod.GET)
+    private String changeReceiptGET(@PathVariable("id") long id, Model model, ReceiptHost newReceipt, HttpSession session) {
+        session.setAttribute("changedReceipt", receiptService.getReceiptById(id));
+        model.addAttribute("newReceipt", newReceipt);
+
         return "changeReceipt";
+    }
+
+    @RequestMapping(value = "/changeReceipt/{id}", method = RequestMethod.POST)
+    private String changeReceiptPOST(@Valid ReceiptHost newReceipt, BindingResult result, @PathVariable("id") long id, Model model, HttpSession session) throws Exception{
+        Receipt oldReceipt = (Receipt) session.getAttribute("changedReceipt");
+        receiptService.change(oldReceipt, newReceipt);
+        return "mainPage";
+    }
+
+    @RequestMapping(value = "/changeReceipt", method = RequestMethod.GET)
+    private String fuckThisShitImOut(HttpSession session, Model model){
+        return "redirect:/mainPage";
     }
 }
 
