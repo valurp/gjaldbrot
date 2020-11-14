@@ -34,4 +34,8 @@ public class ReceiptServiceImplementation implements ReceiptService {
     public List<Receipt> getReceipts(User u) {
         return repository.getUsersReceipts(u.getId());
     }
+
+    public Receipt getReceiptById(long id) {
+        return repository.getReceipt(id);
+    }
 }

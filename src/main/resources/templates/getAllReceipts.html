@@ -10,7 +10,10 @@
     <header th:insert="fragments/header.html :: header"> </header>
     <main class = "allReceipt">
         <div class = "allReceipt-title">
-            <h1>Get All Receipts</h1>
+            <h1>All Receipts</h1>
+        </div>
+        <div class="table-row">
+
         </div>
         <div th:switch="${receipts}" class="allReceipt__container">
             <h2 th:case="null">There are no receipts</h2>
@@ -20,7 +23,8 @@
                         <div class="tableCol tableCol-1">Date</div>
                         <div class="tableCol tableCol-2">Time</div>
                         <div class="tableCol tableCol-3">Type</div>
-                        <div class="tableCol tableCol-4">Amount</div>
+                        <div class="tableCol tableCol-2">Amount</div>
+                        <div class="tableCol tableCol-1">Change</div>
                     </li>
                     <li class="table-row" th:each="receipt : ${receipts}">
                         <div class="tableCol tableCol-1" th:text="${receipt.date}"></div>
@@ -28,7 +32,7 @@
                         <div class="tableCol tableCol-3">
                             <img th:src="@{'types/' + ${receipt.type} + '.svg'}", th:alt="${receipt.type}">
                         </div>
-                        <div class="tableCol tableCol-2" th:text="${receipt.amount}"></div>
+                        <div class="tableCol tableCol-2" th:text="${receipt.amount} + 'kr'"></div>
                         <div class="tableCol tableCol-1">
                             <a th:href="'changeReceipt/'+${receipt.id}">Change Receipt</a>
                         </div>

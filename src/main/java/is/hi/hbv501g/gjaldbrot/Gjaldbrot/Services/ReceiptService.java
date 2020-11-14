@@ -10,4 +10,6 @@ public interface ReceiptService {
     void delete(Receipt receipt);
     Receipt change(Receipt receipt);
     List<Receipt> getReceipts(User u);
+
+    Receipt getReceiptById(long id);
 }

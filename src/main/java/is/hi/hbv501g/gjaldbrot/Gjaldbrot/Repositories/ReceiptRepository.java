@@ -21,4 +21,7 @@ public interface ReceiptRepository extends JpaRepository<Receipt, Long> {
     @Query(value = "Select * From Receipt Where User_id = :user_id", nativeQuery = true)
     List<Receipt> getUsersReceipts(@Param("user_id") long userId);
 
+    @Query(value = "Select * From Receipt Where id = :Rid", nativeQuery = true)
+    Receipt getReceipt(@Param("Rid") long Rid);
+
 }
