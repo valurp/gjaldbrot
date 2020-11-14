@@ -10,10 +10,16 @@
     <header th:insert="fragments/header.html :: header"> </header>
     <main class = "allReceipt">
         <div class = "allReceipt-title">
-            <h1>All Receipts</h1>
+            <h2>All Receipts</h2>
         </div>
         <div class="table-row">
-
+            <ul class="table-selector">
+                <li>
+                    <div class="tableCol tableCol-2">Display by date</div>
+                    <div class="tableCol tableCol-2">Display by time</div>
+                    <div class="tableCol tableCol-2">Display by type</div>
+                </li>
+            </ul>
         </div>
         <div th:switch="${receipts}" class="allReceipt__container">
             <h2 th:case="null">There are no receipts</h2>
