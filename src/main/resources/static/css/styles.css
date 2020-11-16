@@ -96,6 +96,11 @@ h1 {
     width: 100%;
   }
 }
+header {
+  top: 0;
+  position: sticky;
+}
+
 .header {
   display: flex;
   margin: 0 auto;
@@ -288,8 +293,13 @@ h1 {
   position: relative;
 }
 
-.overview_input:not(:checked) + .overview_label{
-    text-decoration: line-through;
+.overview_input:checked:after {
+  content: '\2714';
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 3px;
+  color: #000;
 }
 
 .login {

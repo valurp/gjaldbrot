@@ -36,11 +36,14 @@
                         <div class="tableCol tableCol-1" th:text="${receipt.date}"></div>
                         <div class="tableCol tableCol-2" th:text="${receipt.time}"></div>
                         <div class="tableCol tableCol-3">
-                            <img th:src="@{'types/' + ${receipt.type} + '.svg'}", th:alt="${receipt.type}">
+                            <img th:src="@{'img/types/' + ${receipt.type} + '.svg'}", th:alt="${receipt.type}">
                         </div>
                         <div class="tableCol tableCol-2" th:text="${receipt.amount} + 'kr'"></div>
                         <div class="tableCol tableCol-1">
                             <a th:href="'changeReceipt/'+${receipt.id}">Change Receipt</a>
+                        </div>
+                        <div class="tableCol tableCol-1">
+                            <a th:href="'deleteReceipt/'+${receipt.id}">Delete Receipt</a>
                         </div>
                     </li>
                 </ul>
