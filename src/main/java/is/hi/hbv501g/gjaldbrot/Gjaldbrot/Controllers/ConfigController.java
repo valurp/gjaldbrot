@@ -42,6 +42,16 @@ public class ConfigController {
         return JSON;
     }
 
+    /*
+    * Safnar saman upplýsingum fyrir samanburð milli mánuða í JSON streng
+     */
+    private String writeComparison(ArrayList<Receipt> r) {
+        // þarf að vera einhver hella jank strengja aðferð held ég
+
+        return "";
+    }
+
+
     @RequestMapping(value = "/overView", method = RequestMethod.GET)
     public String overview(Model model){
         Calendar calendar = new GregorianCalendar();
@@ -57,5 +67,10 @@ public class ConfigController {
         }
         model.addAttribute("receipts", writeReceipts(receipts));
         return "overView";
+    }
+
+    @RequestMapping(value = "/comparison", method = RequestMethod.GET)
+    public String comparison(Model model) {
+        return "comparison";
     }
 }

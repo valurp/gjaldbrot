@@ -288,13 +288,8 @@ h1 {
   position: relative;
 }
 
-.overview_input:checked:after {
-  content: '\2714';
-  font-size: 14px;
-  position: absolute;
-  top: 0;
-  left: 3px;
-  color: #000;
+.overview_input:not(:checked) + .overview_label{
+    text-decoration: line-through;
 }
 
 .login {
