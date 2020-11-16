@@ -3,6 +3,9 @@ package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.Receipt;
+import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
+import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.ReceiptService;
+import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,23 +13,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.*;
+
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptType.Type;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
-public class ConfigController {
+public class ComparisonsController {
+    private ReceiptService receiptService;
+    private UserService userService;
 
     @Autowired
-    private ObjectMapper jsonMapper;
+    public ComparisonsController(ReceiptService receiptService, UserService userService){
+        this.receiptService = receiptService;
+        this.userService = userService;
+    }
 
     /*
     * safnar saman upphæðum í útgjaldaflokka og skilar JSON streng
     * sem er á forminu: "útgjaldaflokkur: upphæð"
     * */
-    private String writeReceipts(ArrayList<Receipt> receipts){
+    private String writeReceipts(List<Receipt> receipts){
         int matur = 0, fot=0, afengi=0, tobak=0, skemmtun=0, veitingar=0;
         for (Receipt r : receipts) {
             if (r.getType() == Type.MATARINNKAUP) matur += r.getAmount();
@@ -53,18 +64,14 @@ public class ConfigController {
 
 
     @RequestMapping(value = "/overView", method = RequestMethod.GET)
-    public String overview(Model model){
-        Calendar calendar = new GregorianCalendar();
-        int[] months = {10, 10,  9,  9,  8,  8, 10, 11, 10, 11};
-        int[] days =   {12, 13, 12, 12, 10, 10, 13, 12, 10, 11};
-        ArrayList<Receipt> receipts = new ArrayList<Receipt>();
-        for(int i = 0; i < 10; i++){
-            calendar.set(2020, months[i], days[i],10,0);
-            receipts.add(new Receipt(calendar.getTime(),
-                    LocalTime.now(),
-                    Type.MATARINNKAUP,
-                    1000));
-        }
+    public String overview(Model model, HttpSession session){
+        DateFormat df = new SimpleDateFormat("yyyy-MM");
+        Date dateobj = new Date();
+
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        User u = userService.getUserByName(sessionUser.getuName());
+
+        List<Receipt> receipts = receiptService.getReceiptsByMonth(u, df.format(dateobj));
         model.addAttribute("receipts", writeReceipts(receipts));
         return "overView";
     }

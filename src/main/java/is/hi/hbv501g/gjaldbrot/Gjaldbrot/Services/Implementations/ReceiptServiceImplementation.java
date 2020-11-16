@@ -7,6 +7,7 @@ import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.ReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,5 +38,13 @@ public class ReceiptServiceImplementation implements ReceiptService {
 
     public Receipt getReceiptById(long id) {
         return repository.getReceipt(id);
+    }
+
+    public ArrayList<Receipt> getReceiptsByMonth(User u, String month){
+        //month : yyyy-MM -> yyyy-MM-dd-
+        String from = month+"-01 00:00:00.0";
+        String to = month+"-30 00:00:00.0";
+
+        return (ArrayList<Receipt>) repository.getReceiptsOfMonth(u.getId(), from, to);
     }
 }

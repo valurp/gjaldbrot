@@ -3,6 +3,7 @@ package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.Receipt;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface ReceiptService {
@@ -12,4 +13,6 @@ public interface ReceiptService {
     List<Receipt> getReceipts(User u);
 
     Receipt getReceiptById(long id);
+
+    ArrayList<Receipt> getReceiptsByMonth(User u, String month);
 }

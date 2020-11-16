@@ -106,7 +106,7 @@ function getData() {
         backgroundColor: [cat.matur.color, cat.fatnadur.color, cat.afengi.color, cat.tobak.color, cat.skemmtun.color, cat.veitingar.color],
         borderColor: 'rgba(0, 0, 0, 1)',
         borderWidth: 1,
-        data: [data.matur, data.fatnadur, data.afengi, data.tobak, data.skemmtun, data.afengi],
+        data: [data.matur, data.fatnadur, data.afengi, data.tobak, data.skemmtun, data.veitingar],
       }]
     };
 }

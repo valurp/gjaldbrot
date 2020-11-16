@@ -24,4 +24,7 @@ public interface ReceiptRepository extends JpaRepository<Receipt, Long> {
     @Query(value = "Select * From Receipt Where id = :Rid", nativeQuery = true)
     Receipt getReceipt(@Param("Rid") long Rid);
 
+    @Query(value = "Select * From Receipt Where User_id = :user_id And Date >= :from And Date <= :to", nativeQuery = true)
+    List<Receipt> getReceiptsOfMonth(@Param("user_id") long user_id, @Param("from") String from, @Param("to") String to);
+
 }
