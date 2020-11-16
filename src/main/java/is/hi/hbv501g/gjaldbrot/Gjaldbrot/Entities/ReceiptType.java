@@ -42,6 +42,26 @@ public class ReceiptType {
         }
         throw new Exception("Inputted type does not belong to enum Type");
     }
+
+    public static Type intToType(int i){
+        switch (i){
+            case 1:
+                return Type.MATARINNKAUP;
+            case 2:
+                return Type.FATNADUR;
+            case 3:
+                return Type.VEITINGASTADUR;
+            case 4:
+                return Type.SKEMMTUN_OG_AFTREYING;
+            case 5:
+                return Type.AFENGI;
+            case 6:
+                return Type.TOBAK;
+            default:
+                break;
+        }
+        return null;
+    }
     public static void main(String[] args){
         System.out.println("Hello world");
     }

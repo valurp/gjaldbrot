@@ -82,8 +82,9 @@ public class ReceiptHost {
         LocalTime t = LocalTime.parse(this.time);
         r.setTime(t);
         r.setAmount(this.amount);
+        Type rType = ReceiptType.intToType(Integer.parseInt(type));
+        r.setType(rType);
         return r;
-        //Látum type vera null (í bili)
 
 
 
