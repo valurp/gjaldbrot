@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptType.Type;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface ReceiptRepository extends JpaRepository<Receipt, Long> {
@@ -15,8 +16,9 @@ public interface ReceiptRepository extends JpaRepository<Receipt, Long> {
     void delete(Receipt receipt);
 
     @Modifying
+    @Transactional
     @Query("Update Receipt set Amount = :amount, Type = :type where Id = :id") //Hér kæmi SQL update skipun fyrir breytingar á receipt
-    Receipt change(@Param("amount") double amount, @Param("type") Type type, @Param("id") long id);
+    void change(@Param("amount") double amount, @Param("type") Type type, @Param("id") long id);
 
     @Query(value = "Select * From Receipt Where User_id = :user_id", nativeQuery = true)
     List<Receipt> getUsersReceipts(@Param("user_id") long userId);
