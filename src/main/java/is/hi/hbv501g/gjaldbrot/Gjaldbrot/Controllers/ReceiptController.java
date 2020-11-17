@@ -90,6 +90,7 @@ public class ReceiptController {
     @RequestMapping(value = "/changeReceipt/{id}", method = RequestMethod.GET)
     private String changeReceiptGET(@PathVariable("id") long id, Model model, ReceiptHost newReceipt, HttpSession session) {
         session.setAttribute("changedReceipt", receiptService.getReceiptById(id));
+        System.out.println(session);
         model.addAttribute("newReceipt", newReceipt);
 
         return "changeReceipt";

@@ -30,7 +30,7 @@ public class NavController {
         System.out.println("TestDelete");
         Receipt receipt = receiptService.findById(id).orElseThrow(()-> new IllegalArgumentException("Invalid Receipt ID"));
         receiptService.delete(receipt);
-        model.addAttribute("movies", receiptService.findAll());
+        model.addAttribute("receipt", receiptService.findAll());
         return "redirect:/allReceipts";
     }
 }
