@@ -10,10 +10,15 @@ import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptType.Type;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 public interface ReceiptRepository extends JpaRepository<Receipt, Long> {
     Receipt save(Receipt receipt);
     void delete(Receipt receipt);
+
+    Optional<Receipt> findById(long id);
+
+    List<Receipt> findAll();
 
     @Modifying
     @Transactional

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReceiptServiceImplementation implements ReceiptService {
@@ -48,5 +49,15 @@ public class ReceiptServiceImplementation implements ReceiptService {
         String to = month+"-30 00:00:00.0";
 
         return (ArrayList<Receipt>) repository.getReceiptsOfMonth(u.getId(), from, to);
+    }
+
+    @Override
+    public Optional<Receipt> findById(long id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    public List<Receipt> findAll() {
+        return repository.findAll();
     }
 }
