@@ -23,7 +23,14 @@
             <p>Time:</p>
             <input type="time" name="rTime" id="time" th:field="*{time}" th:value="${session.time}">
             <p>Type:</p>
-            <input type="number" name="rType" id="type" th:field="*{type}" th:value="${session.type}">
+            <select id="type" name="rType" th:field="*{type}">
+                <option th:value=1>Matur</option>
+                <option th:value=2>Fatnaður</option>
+                <option th:value=3>Veitingar</option>
+                <option th:value=4>Skemmtun</option>
+                <option th:value=5>Áfengi</option>
+                <option th:value=6>Tóbak</option>
+            </select>
             <p>Amount:</p>
             <input type="number" name="rAmount" id="amount" th:field="*{amount}" th:value="${session.amount}">
             <input type="submit" value="Change" class="rmain__container__registerForm-submit">
