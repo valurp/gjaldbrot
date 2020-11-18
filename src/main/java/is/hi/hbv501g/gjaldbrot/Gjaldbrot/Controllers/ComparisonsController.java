@@ -69,15 +69,34 @@ public class ComparisonsController {
         Date dateobj = new Date();
 
         User sessionUser = (User) session.getAttribute("LoggedInUser");
-        User u = userService.getUserByName(sessionUser.getuName());
+        if (sessionUser != null) {
+            User u = userService.getUserByName(sessionUser.getuName());
 
-        List<Receipt> receipts = receiptService.getReceiptsByMonth(u, df.format(dateobj));
-        model.addAttribute("receipts", writeReceipts(receipts));
-        return "overView";
+            List<Receipt> receipts = receiptService.getReceiptsByMonth(u, df.format(dateobj));
+            model.addAttribute("receipts", writeReceipts(receipts));
+            return "overView";
+        }
+        return "redirect:/";
     }
 
+    private
+
     @RequestMapping(value = "/comparison", method = RequestMethod.GET)
-    public String comparison(Model model) {
-        return "comparison";
+    public String comparison(Model model, HttpSession session) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM");
+        Date dateobj = new Date();
+
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        if (sessionUser != null) {
+            User u = userService.getUserByName(sessionUser.getuName());
+
+            List<Receipt> receipts = receiptService.getReceipts(u);
+            for(Receipt r : receipts) {
+                System.out.println(r.getDate());
+            }
+            Collections.sort(receipts);
+            return "comparison";
+        }
+        return "redirect:/";
     }
 }

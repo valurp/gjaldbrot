@@ -7,7 +7,7 @@ import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptType.Type;
 
 @Entity
 @Table(name = "Receipt")
-public class Receipt {
+public class Receipt implements Comparable<Receipt>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
