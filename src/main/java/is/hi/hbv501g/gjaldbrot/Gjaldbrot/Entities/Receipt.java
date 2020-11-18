@@ -133,4 +133,8 @@ public class Receipt implements Comparable<Receipt>{
     public Receipt(int amount) {
         this.amount = amount;
     }
+
+    public int compareTo(Receipt r) {
+        return this.date.compareTo(r.getDate());
+    }
 }

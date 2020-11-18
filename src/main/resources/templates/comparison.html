@@ -8,6 +8,7 @@
 <body>
     <header th:insert="fragments/header.html :: header"> </header>
     <main>
+        <div id="receive_data" th:attr="data-receipts=${compReceipt}"></div>
         <canvas id="myChart" width="400" height="400"></canvas>
         <div class="month-picker">
             <input id="from" type="month"/>

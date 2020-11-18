@@ -28,14 +28,14 @@ const cat = {
 
 // object sem er fyllt af data-attribute úr html
 const values = {
-  start: "2019-06",
-  end: "2020-06",
-  matur: [3731,	2939,	4757,	1692,	3446,	2356,	3249,	1531,	2417,	3530,	2964,	3925],
-  fatnadur: [3660,	1195,	2588,	1899,	3557,	1195,	2141,	2817,	2188,	4916,	1159,	1892],
-  afengi: [2698,	3522,	1155,	2973,	3214,	1095,	1234,	4918,	3003,	2111,	2047,	4764],
-  tobak: [2792,	1779,	3082,	4556,	3673,	4689,	1991,	3617,	4726,	1984,	2003,	1957],
-  skemmtun: [2073,	2324,	1491,	3432,	4147,	2087,	2380,	1095,	1203,	3845,	4822,	4008],
-  veitingar: [2780,	4042,	3645,	3528,	3070,	1955,	3376,	3256,	1358,	3453,	3342,	2453]
+  start: "",
+  end: "",
+  matur: [],
+  fatnadur: [],
+  afengi: [],
+  tobak: [],
+  skemmtun: [],
+  veitingar: []
 }
 
 // Month manipulating helper functions
@@ -229,6 +229,16 @@ function setUpDates() {
 * ATH: Það má bara kalla einu sinni í þetta fall í hverjum glugga.
 */
 function getData() {
+  let data = JSON.parse(document.getElementById('receive_data').getAttribute('data-receipts'));
+  values.matur = data.matur;
+  values.fatnadur = data.fatnadur;
+  values.afengi = data.afengi;
+  values.tobak = data.tobak;
+  values.skemmtun = data.skemmtun;
+  values.veitingar = data.veitingar;
+  values.start = data.start;
+  values.end = data.end;
+
   generateLabels();
   return {
     labels: values.labels,
@@ -285,12 +295,12 @@ function getData() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  setUpDates();
   let dataObject = getData();
+  setUpDates();
   let ctx = document.getElementById('myChart').getContext('2d');
   window.myLine = new Chart(ctx, {
     type: 'line',
-    data: getData(),
+    data: dataObject,
     options: {
       responsive: true,
       legend: {
