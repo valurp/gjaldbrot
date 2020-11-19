@@ -2,6 +2,7 @@ package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Controllers;
 
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.Receipt;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptHost;
+import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptType;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.ReceiptService;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.UserService;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -90,8 +93,14 @@ public class ReceiptController {
     @RequestMapping(value = "/changeReceipt/{id}", method = RequestMethod.GET)
     private String changeReceiptGET(@PathVariable("id") long id, Model model, ReceiptHost newReceipt, HttpSession session) {
         session.setAttribute("changedReceipt", receiptService.getReceiptById(id));
-        System.out.println(session);
         model.addAttribute("newReceipt", newReceipt);
+        Receipt r = receiptService.getReceiptById(id);
+        model.addAttribute("oldReceiptType", ReceiptType.typeToInt(r.getType()));
+        model.addAttribute("oldReceiptAmount", r.getAmount());
+
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+        model.addAttribute("oldReceiptDate", df.format(r.getDate()));
 
         return "changeReceipt";
     }

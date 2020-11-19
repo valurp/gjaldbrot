@@ -19,20 +19,20 @@
         </script>
         <form action="#" th:action="@{/changeReceipt}" th:object="${newReceipt}" class="rmain__container__registerForm" method="post">
             <p>Date:</p>
-            <input type="date" name="rDate" id="date" th:field="*{date}">
+            <input type="date" id="date" name="date" th:value="${oldReceiptDate}">
             <p>Time:</p>
-            <input type="time" name="rTime" id="time" th:field="*{time}" th:value="${session.time}">
+            <input type="time" th:field="*{time}" th:value="${session.time}">
             <p>Type:</p>
-            <select id="type" name="rType" th:field="*{type}">
-                <option th:value=0>Matur</option>
-                <option th:value=1>Fatnaður</option>
-                <option th:value=2>Veitingar</option>
-                <option th:value=3>Skemmtun</option>
-                <option th:value=4>Áfengi</option>
-                <option th:value=5>Tóbak</option>
+            <select name="type" id="type">
+                <option th:selected="${oldReceiptType} == 0" th:value=0>Matur</option>
+                <option th:selected="${oldReceiptType} == 1" th:value=1>Fatnaður</option>
+                <option th:selected="${oldReceiptType} == 2" th:value=2>Veitingar</option>
+                <option th:selected="${oldReceiptType} == 3" th:value=3>Skemmtun</option>
+                <option th:selected="${oldReceiptType} == 4" th:value=4>Áfengi</option>
+                <option th:selected="${oldReceiptType} == 5" th:value=5>Tóbak</option>
             </select>
             <p>Amount:</p>
-            <input type="number" name="rAmount" id="amount" th:field="*{amount}" th:value="${session.amount}">
+            <input type="number" name="amount" id="amount"  th:value="${oldReceiptAmount}">
             <input type="submit" value="Change" class="rmain__container__registerForm-submit">
         </form>
     </div>

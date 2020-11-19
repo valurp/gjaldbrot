@@ -50,23 +50,48 @@ public class ReceiptType {
      */
     public static Type intToType(int i){
         switch (i){
-            case 1:
+            case 0:
                 return Type.MATARINNKAUP;
-            case 2:
+            case 1:
                 return Type.FATNADUR;
-            case 3:
+            case 2:
                 return Type.VEITINGASTADUR;
-            case 4:
+            case 3:
                 return Type.SKEMMTUN_OG_AFTREYING;
-            case 5:
+            case 4:
                 return Type.AFENGI;
-            case 6:
+            case 5:
                 return Type.TOBAK;
             default:
                 break;
         }
         return null;
     }
+    /**
+     * Einfalt fall sem túlkar type sem heiltölur
+     * @param t Type af type type
+     * @return i
+     */
+    public static int typeToInt(Type t){
+        switch (t){
+            case MATARINNKAUP:
+                return 0;
+            case FATNADUR:
+                return 1;
+            case VEITINGASTADUR:
+                return 2;
+            case SKEMMTUN_OG_AFTREYING:
+                return 3;
+            case AFENGI:
+                return 4;
+            case TOBAK:
+                return 5;
+            default:
+                break;
+        }
+        return 0;
+    }
+
     public static void main(String[] args){
         System.out.println("Hello world");
     }
