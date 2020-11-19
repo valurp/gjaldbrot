@@ -22,8 +22,8 @@ public interface ReceiptRepository extends JpaRepository<Receipt, Long> {
 
     @Modifying
     @Transactional
-    @Query("Update Receipt set Amount = :amount, Type = :type where Id = :id") //Hér kæmi SQL update skipun fyrir breytingar á receipt
-    void change(@Param("amount") double amount, @Param("type") int type, @Param("id") long id);
+    @Query("Update Receipt set Amount = :amount, Type = :type, Date = :date where Id = :id") //Hér kæmi SQL update skipun fyrir breytingar á receipt
+    void change(@Param("amount") double amount, @Param("type") int type, @Param("date") String date, @Param("id") long id);
 
     @Query(value = "Select * From Receipt Where User_id = :user_id", nativeQuery = true)
     List<Receipt> getUsersReceipts(@Param("user_id") long userId);

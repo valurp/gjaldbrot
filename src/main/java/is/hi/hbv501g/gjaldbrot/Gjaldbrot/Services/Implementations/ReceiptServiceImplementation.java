@@ -33,7 +33,8 @@ public class ReceiptServiceImplementation implements ReceiptService {
     }
 
     public void change(Receipt oldReceipt, ReceiptHost newReceipt){
-        repository.change(newReceipt.getAmount(), Integer.parseInt(newReceipt.getType()), oldReceipt.getId());
+        String newDate = newReceipt.getDate()+" 00:00:00.0";
+        repository.change(newReceipt.getAmount(), Integer.parseInt(newReceipt.getType()), newDate, oldReceipt.getId());
     }
 
     public List<Receipt> getReceipts(User u) {
