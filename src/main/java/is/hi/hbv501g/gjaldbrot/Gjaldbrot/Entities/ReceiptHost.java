@@ -85,8 +85,5 @@ public class ReceiptHost {
         Type rType = ReceiptType.intToType(Integer.parseInt(type));
         r.setType(rType);
         return r;
-
-
-
     }
 }

@@ -110,7 +110,7 @@ public class UserController {
     public String mainPageGET(HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser != null){
-            model.addAttribute("loggedinuser", sessionUser);
+            model.addAttribute("LoggedInUser", sessionUser);
             return "mainPage";
         }
         return "redirect:/";
@@ -126,9 +126,8 @@ public class UserController {
     public String logoutGET(HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         if(sessionUser != null){
-            sessionUser = null;
-            model.addAttribute("loggedinuser", sessionUser);
-            return "login";
+            session.removeAttribute("LoggedInUser");
+            return "redirect:/";
         }
         return "redirect:/";
     }
