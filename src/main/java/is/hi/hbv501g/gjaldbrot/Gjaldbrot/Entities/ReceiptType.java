@@ -43,6 +43,11 @@ public class ReceiptType {
         throw new Exception("Inputted type does not belong to enum Type");
     }
 
+    /**
+     * Einfalt fall sem leyfir heiltölum að vera túlkaðar sem Type
+     * @param i heiltala frá 1-6
+     * @return Type
+     */
     public static Type intToType(int i){
         switch (i){
             case 1:
