@@ -2,6 +2,7 @@ package is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.Implementations;
 
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.Receipt;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptHost;
+import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.ReceiptType;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Entities.User;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Repositories.ReceiptRepository;
 import is.hi.hbv501g.gjaldbrot.Gjaldbrot.Services.ReceiptService;
@@ -32,7 +33,7 @@ public class ReceiptServiceImplementation implements ReceiptService {
     }
 
     public void change(Receipt oldReceipt, ReceiptHost newReceipt){
-        repository.change(newReceipt.getAmount(), oldReceipt.getType(),oldReceipt.getId());
+        repository.change(newReceipt.getAmount(), Integer.parseInt(newReceipt.getType()), oldReceipt.getId());
     }
 
     public List<Receipt> getReceipts(User u) {
