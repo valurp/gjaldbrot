@@ -112,5 +112,19 @@ public class ReceiptController {
         return "redirect:/allReceipts";
     }
 
+    @RequestMapping(value="/deleteReceipt/{id}", method = RequestMethod.GET)
+    public String deleteReceipt(@PathVariable("id") long id, Model model){
+        System.out.println("TestDelete");
+        Receipt receipt = receiptService.findById(id).orElseThrow(()-> new IllegalArgumentException("Invalid Receipt ID"));
+        receiptService.delete(receipt);
+        model.addAttribute("receipt", receiptService.findAll());
+        return "redirect:/allReceipts";
+    }
+
+    @RequestMapping(value = "/savings", method = RequestMethod.GET)
+    public String savingsGET(Model model){
+        return "savings";
+    }
+
 }
 
