@@ -9,8 +9,11 @@
 <body>
     <header th:insert="fragments/header.html :: header"> </header>
     <main>
-        <p>Velkominn</p>
-        <!--<p th:text="${loggedinuser.uName}"></p>-->
+        <div>
+            <p>Velkominn</p>
+            <p th:text="${LoggedInUser.uName}"></p>
+        </div>
+        <div th:insert="fragments/news.html :: news"> </div>
     </main>
     <footer th:insert="fragments/footer.html :: footer"></footer>
 </body>

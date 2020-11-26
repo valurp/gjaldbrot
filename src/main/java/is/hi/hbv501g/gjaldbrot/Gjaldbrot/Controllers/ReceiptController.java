@@ -69,7 +69,12 @@ public class ReceiptController {
         Receipt newReceipt = receipt.createReceipt();
         newReceipt.setUser(userService.getUserByName(sessionUser.getuName()));
         receiptService.add(newReceipt);
-        return "mainPage";
+        if(sessionUser != null){
+            List<Receipt> receipts = receiptService.getReceipts(userService.getUserByName(sessionUser.getuName()));
+            model.addAttribute("receipts", receipts);
+            return "getAllReceipts";
+        }
+        return "redirect:/";
     }
 
     /**
